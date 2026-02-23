@@ -1,4 +1,4 @@
-@extends("layouts.app")
+@extends("layouts.admin")
 @section("dashboard")
 <div>
   HALO TES BARBER ANJAY

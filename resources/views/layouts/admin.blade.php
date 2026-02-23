@@ -31,7 +31,7 @@
         <div class="container mx-auto flex justify-between items-center">
             <h1 class="text-2xl font-bold tracking-widest text-gold uppercase">Admin Barbeshop</h1>
             <div class="space-x-6">
-                <a href="#" class="hover:text-gold transition">Dashboard</a>
+                <a href="{{ barbers.dashboard }}" class="hover:text-gold transition">Dashboard</a>
                 <a href="{{ route('barbers.index') }}" class="hover:text-gold transition">Barbers</a>
                 <a href="#" class="hover:text-gold transition">Services</a>
                 <a href="#" class="hover:text-gold transition">Appointments</a>
@@ -46,6 +46,7 @@
             </div>
         @endif
 
+        @yield('dashboard')
         @yield('barber')
     </main>
 </body>
