@@ -72,7 +72,7 @@ class BarberController extends Controller
       if ($barber->photo) {
         Storage::disk("public")->delete($barber->photo);
       }
-      $barber->photo = $request("photo");
+      $barber->photo = $request->file("photo");
 
       $barber->save();
 

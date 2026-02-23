@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BarberController;
 
 Route::get('/', function () {
-  return view('layouts.app');
+  return view('layouts.admin');
 });
 
 // CRUD BARBERS
