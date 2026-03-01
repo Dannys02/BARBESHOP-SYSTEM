@@ -66,19 +66,22 @@ class BarberController extends Controller {
       'photo.max' => 'Foto maksimal 2MB',
     ]);
 
+    // Update data teks
     $barber->name = $request->name;
     $barber->bio = $request->bio;
 
+    // Logika Update Foto
     if ($request->hasFile("photo")) {
+      // Hapus foto lama jika ada
       if ($barber->photo) {
         Storage::disk("public")->delete($barber->photo);
       }
-      $barber->photo = $request->file("photo");
-
-      $barber->save();
-
-      return redirect()->route("barbers.index")->with("succes", "Barber berhasil diupdate!");
+      // Simpan foto baru dan ambil path-nya
+      $path = $request->file("photo")->store("barbers", "public");
+      $barber->photo = $path; // SIMPAN PATH STRING
     }
+    $barber->save();
+    return redirect()->route("barbers.index")->with("success", "Barber berhasil diupdate!");
   }
 
   public function destroy(Barber $barber) {

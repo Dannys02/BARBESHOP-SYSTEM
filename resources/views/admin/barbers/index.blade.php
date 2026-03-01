@@ -11,7 +11,7 @@
 <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
     @forelse($barbers as $barber)
     <div class="bg-slate-800 rounded-2xl overflow-hidden border border-gray-700 hover:border-gold transition group">
-        <img src="{{ asset('storage/' . $barber->photo) }}" alt="{{ $barber->name }}" class="w-full h-64 object-cover grayscale group-hover:grayscale-0 transition duration-500">
+        <img src="{{ asset('storage/' . $barber->photo) }}" alt="{{ $barber->name }}" class="w-full h-69 object-cover grayscale group-hover:grayscale-0 transition duration-500">
 
         <div class="p-6 md:p-4">
             <h3 class="text-xl font-bold text-gold">{{ $barber->name }}</h3>
@@ -29,7 +29,7 @@
         </div>
     </div>
     @empty
-    <div class="bg-slate-800 rounded-2xl overflow-hidden border border-gray-700 hover:border-gold transition group">
+    <div class="bg-slate-800 w-full rounded-2xl overflow-hidden border border-gray-700 hover:border-gold transition group">
         <h1 class="p-4 text-center">Data kosong.</h1>
     </div>
     @endforelse

@@ -8,11 +8,11 @@ Route::get('/', function () {
 });
 
 Route::get('/dashboard', function() {
-    $barbers = App\Models\Barber::all();
-    $service = App\Models\Service::all();
-    $appointment = App\Models\Appointment::all();
+  $barbers = App\Models\Barber::count();
+  $services = App\Models\Service::count();
+  $appointments = App\Models\Appointment::count();
 
-    return view("admin.dashboard");
+  return view("admin.dashboard", compact("barbers", "services", "appointments"));
 });
 
 // CRUD BARBERS
