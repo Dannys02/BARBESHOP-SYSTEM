@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Gent's Slot | Admin Dashboard</title>
+  <title>Danny's | Admin Pages</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
     /* Charcoal Dark background */
@@ -36,25 +36,25 @@
   <nav class="border-b border-gray-800 bg-slate-900 shadow-xl sticky top-0 z-50">
     <div class="container mx-auto px-6 py-4 flex justify-between items-center">
 
-      <a href="/dashboard" class="text-2xl font-bold tracking-widest text-gold uppercase flex items-center gap-2">
-        <span>✂</span> Gent's Slot
+      <a href="#" class="text-2xl font-bold tracking-widest text-gold uppercase flex items-center gap-2">
+        <span>✂</span> Danny's
       </a>
 
       <div class="hidden md:flex items-center space-x-2">
-        <a href="/dashboard"
+        <a href="/admin/dashboard"
           class="relative px-4 py-2 rounded-lg transition-all duration-300
-          {{ request()->is('dashboard') ? 'text-gold' : 'text-gray-300 hover:bg-slate-800 hover:text-gold' }}">
+          {{ request()->is('admin/dashboard') ? 'text-gold' : 'text-gray-300 hover:bg-slate-800 hover:text-gold' }}">
           Dashboard
-          @if(request()->is('dashboard'))
+          @if(request()->is('admin/dashboard'))
           <span class="absolute -bottom-3 left-0 w-full h-0.5 bg-gold"></span>
           @endif
         </a>
 
         <a href="{{ route('barbers.index') }}"
-          class="relative px-4 py-2 rounded-lg text-gray-300 hover:bg-slate-800 hover:text-gold transition-all duration-300
-          {{ request()->is('barbers') ? 'text-gold' : 'text-gray-300 hover:bg-slate-800 hover:text-gold' }}">
+          class="relative px-4 py-2 rounded-lg transition-all duration-300
+          {{ request()->is('admin/barbers*') ? 'text-gold' : 'text-gray-300 hover:bg-slate-800 hover:text-gold' }}">
           Barbers
-          @if(request()->is('barbers'))
+          @if(request()->is('admin/barbers*'))
           <span class="absolute -bottom-3 left-0 w-full h-0.5 bg-gold"></span>
           @endif
         </a>

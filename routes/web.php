@@ -3,10 +3,12 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BarberController;
 
-Route::get('/', function () {
-  return view('layouts.admin');
+Route::get('/', function() {
+  return "Halaman belum dibuat";
 });
 
+Route::prefix("admin")->group(function() {
+// DASHBOARD
 Route::get('/dashboard', function() {
   $barbers = App\Models\Barber::count();
   $services = App\Models\Service::count();
@@ -16,4 +18,5 @@ Route::get('/dashboard', function() {
 });
 
 // CRUD BARBERS
-Route::resource("barbers", BarberController::class)->except(["show"]);
+Route::resource("/barbers", BarberController::class)->except(["show"]);
+});
