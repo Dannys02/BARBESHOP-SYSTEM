@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BarberController;
+use App\Http\Controllers\ServiceController;
 
 Route::get('/', function() {
   return "Halaman belum dibuat";
@@ -19,4 +20,7 @@ Route::get('/dashboard', function() {
 
 // CRUD BARBERS
 Route::resource("/barbers", BarberController::class)->except(["show"]);
+
+// CRUD SERVICES
+Route::resource("/services", ServiceController::class)->except(["show"]);
 });

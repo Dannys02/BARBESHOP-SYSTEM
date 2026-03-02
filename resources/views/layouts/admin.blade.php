@@ -59,8 +59,14 @@
           @endif
         </a>
 
-        <a href="#" class="px-4 py-2 rounded-lg text-gray-300 hover:bg-slate-800 hover:text-gold transition-all duration-300
-          ">Services</a>
+        <a href="{{ route('services.index') }}"
+          class="relative px-4 py-2 rounded-lg transition-all duration-300
+          {{ request()->is('admin/services*') ? 'text-gold' : 'text-gray-300 hover:bg-slate-800 hover:text-gold' }}">
+          Services
+          @if(request()->is('admin/services*'))
+          <span class="absolute -bottom-3 left-0 w-full h-0.5 bg-gold"></span>
+          @endif
+        </a>
         <a href="#" class="px-4 py-2 rounded-lg text-gray-300 hover:bg-slate-800 hover:text-gold transition-all duration-300
           ">Appointments</a>
 
@@ -87,7 +93,7 @@
       <div class="px-6 py-4 space-y-2">
         <a href="/dashboard" class="block py-2 text-gray-300 hover:text-gold transition">Dashboard</a>
         <a href="{{ route('barbers.index') }}" class="block py-2 text-gray-300 hover:text-gold transition">Barbers</a>
-        <a href="#" class="block py-2 text-gray-300 hover:text-gold transition">Services</a>
+        <a href="{{ route('services.index') }}" class="block py-2 text-gray-300 hover:text-gold transition">Services</a>
         <a href="#" class="block py-2 text-gray-300 hover:text-gold transition">Appointments</a>
         <hr class="border-gray-700 my-2">
         <button class="w-full text-left bg-gray-800 text-sm px-4 py-2 rounded-lg hover:bg-gray-700 transition">Logout</button>
@@ -106,6 +112,9 @@
     @yield('barber')
     @yield('create_barber')
     @yield('edit_barber')
+    @yield('service')
+    @yield('create_service')
+    @yield('edit_service')
   </main>
 
   <script>
