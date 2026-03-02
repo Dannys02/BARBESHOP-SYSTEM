@@ -3,7 +3,7 @@
 @section("dashboard")
 <div class="p-4 sm:p-6 lg:p-8 min-h-screen">
   <div class="mb-8">
-    <h1 class="text-3xl font-bold text-gray-50">Dashboard</h1>
+    <h1 class="text-3xl font-bold text-gray-50">Dashboard <span class="text-gold">Saya</span></h1>
     <p class="text-gray-50">
       Selamat datang kembali, Admin!
     </p>
@@ -64,8 +64,8 @@
 
   </div>
 
-  <div class="mt-8  p-6 rounded-2xl border border-gray-100 shadow-sm">
-    <h2 class="text-lg font-semibold text-gray-900 mb-4">Aktivitas Terbaru</h2>
+  <div class="mt-8 p-6 rounded-2xl border border-gray-100 shadow-sm">
+    <h2 class="text-lg font-semibold text-gray-50 mb-4">Aktivitas Terbaru</h2>
     <div class="text-center py-8 text-gray-50 border-2 border-dashed border-gray-200 rounded-xl">
       Belum ada aktivitas terbaru.
     </div>
