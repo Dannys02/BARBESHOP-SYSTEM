@@ -67,8 +67,14 @@
           <span class="absolute -bottom-3 left-0 w-full h-0.5 bg-gold"></span>
           @endif
         </a>
-        <a href="#" class="px-4 py-2 rounded-lg text-gray-300 hover:bg-slate-800 hover:text-gold transition-all duration-300
-          ">Appointments</a>
+        <a href="{{ route('booking.index') }}"
+          class="relative px-4 py-2 rounded-lg transition-all duration-300
+          {{ request()->is('admin/booking*') ? 'text-gold' : 'text-gray-300 hover:bg-slate-800 hover:text-gold' }}">
+          Appointments
+          @if(request()->is('admin/booking*'))
+          <span class="absolute -bottom-3 left-0 w-full h-0.5 bg-gold"></span>
+          @endif
+        </a>
 
         <div class="h-6 w-px bg-gray-700 mx-2"></div>
         <button class="bg-gray-800 text-sm px-4 py-2 rounded-lg hover:bg-red-600 transition">Logout</button>
@@ -109,8 +115,14 @@
           <span class="absolute -bottom-1 left-0 w-full h-0.5 bg-gold"></span>
           @endif
         </a>
-        <a href="#" class="px-4 py-2 rounded-lg text-gray-300 hover:bg-slate-800 hover:text-gold transition-all duration-300
-          ">Appointments</a>
+        <a href="{{ route('booking.index') }}"
+          class="relative px-4 py-2 rounded-lg transition-all duration-300
+          {{ request()->is('admin/booking*') ? 'text-gold' : 'text-gray-300 hover:bg-slate-800 hover:text-gold' }}">
+          Appointments
+          @if(request()->is('admin/booking*'))
+          <span class="absolute -bottom-1 left-0 w-full h-0.5 bg-gold"></span>
+          @endif
+        </a>
       </div>
       <div class="px-6 py-4">
         <button class="w-full mb-24 bg-gray-800 hover:bg-red-600 text-sm px-4 py-2 rounded-lg transition">Logout</button>
@@ -132,6 +144,7 @@
     @yield('service')
     @yield('create_service')
     @yield('edit_service')
+    @yield('appointment')
   </main>
 
   <script>
