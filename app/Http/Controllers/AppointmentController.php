@@ -51,8 +51,19 @@ class AppointmentController extends Controller
 
     public function updateStatus(Request $request, Appointment $appointments)
     {
+        // Prevent changing status if already 'batal'
+        if ($appointments->status == 'batal') {
+            return back()->with('error', 'Status batal tidak dapat diubah.');
+        }
+
+        // Prevent changing from 'selesai' to other status
+        if ($appointments->status == 'selesai') {
+            return back()->with('error', 'Status selesai tidak dapat diubah.');
+        }
+
         $appointments->update(['status' => $request->status]);
 
         return back()->with('succes', 'Status jadwal berhasil diupdate!');
     }
 }
+?>

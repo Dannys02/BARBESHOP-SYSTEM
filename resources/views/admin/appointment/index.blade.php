@@ -44,16 +44,37 @@
                         @endif
                     </td>
                     <td class="px-6 py-4">
-                        <form action="{{ route('booking.updateStatus', $appointment->id) }}" method="POST" class="flex flex-col gap-2">
-                            @csrf
-                            @method('PATCH')
-                            <select name="status" onchange="this.form.submit()" class="bg-slate-700 text-white text-xs px-3 py-2 rounded-lg border border-gray-600 focus:border-gold focus:outline-none">
-                                <option value="pending" {{ $appointment->status == 'pending' ? 'selected' : '' }}>Pending</option>
-                                <option value="konfirmasi" {{ $appointment->status == 'konfirmasi' ? 'selected' : '' }}>Konfirmasi</option>
-                                <option value="selesai" {{ $appointment->status == 'selesai' ? 'selected' : '' }}>Selesai</option>
-                                <option value="batal" {{ $appointment->status == 'batal' ? 'selected' : '' }}>Batal</option>
-                            </select>
-                        </form>
+                        @if($appointment->status == 'pending')
+                            <div class="flex gap-2">
+                                <form action="{{ route('booking.updateStatus', $appointment->id) }}" method="POST">
+                                    @csrf
+                                    @method('PUT')
+                                    <input type="hidden" name="status" value="konfirmasi">
+                                    <button type="submit" class="bg-blue-600 hover:bg-blue-700 text-white text-xs px-3 py-2 rounded-lg transition">
+                                        Konfirmasi
+                                    </button>
+                                </form>
+                                <form action="{{ route('booking.updateStatus', $appointment->id) }}" method="POST">
+                                    @csrf
+                                    @method('PUT')
+                                    <input type="hidden" name="status" value="batal">
+                                    <button type="submit" class="bg-red-600 hover:bg-red-700 text-white text-xs px-3 py-2 rounded-lg transition">
+                                        Batal
+                                    </button>
+                                </form>
+                            </div>
+                        @elseif($appointment->status == 'konfirmasi')
+                            <form action="{{ route('booking.updateStatus', $appointment->id) }}" method="POST">
+                                @csrf
+                                @method('PUT')
+                                <input type="hidden" name="status" value="selesai">
+                                <button type="submit" class="bg-green-600 hover:bg-green-700 text-white text-xs px-3 py-2 rounded-lg transition">
+                                    Selesai
+                                </button>
+                            </form>
+                        @else
+                            <span class="text-gray-500 text-xs">-</span>
+                        @endif
                     </td>
                 </tr>
                 @empty

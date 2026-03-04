@@ -31,4 +31,8 @@ Route::resource("/services", ServiceController::class)->except(["show"]);
 // APPOINTMENTS SYSTEM
 Route::resource("/booking", AppointmentController::class)->except(["show"]);
 
+// Custom route untuk update status
+Route::put('/booking/{appointment}/update-status', [AppointmentController::class, 'updateStatus'])
+    ->name('booking.updateStatus');
+
 });
