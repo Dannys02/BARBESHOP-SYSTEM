@@ -35,97 +35,62 @@
 
   <nav class="border-b border-gray-800 bg-slate-900 shadow-xl sticky top-0 z-50">
     <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-
       <a href="#" class="text-2xl font-bold tracking-widest text-gold uppercase flex items-center gap-2">
-        <span>✂</span> Danny's
+        <span class="text-3xl">✂</span> Danny's
       </a>
 
       <div class="hidden md:flex items-center space-x-2">
-        <a href="/admin/dashboard"
-          class="relative px-4 py-2 rounded-lg transition-all duration-300
-          {{ request()->is('admin/dashboard') ? 'text-gold' : 'text-gray-300 hover:bg-slate-800 hover:text-gold' }}">
-          Dashboard
-          @if(request()->is('admin/dashboard'))
-          <span class="absolute -bottom-3 left-0 w-full h-0.5 bg-gold"></span>
-          @endif
-        </a>
-
-        <a href="{{ route('barbers.index') }}"
-          class="relative px-4 py-2 rounded-lg transition-all duration-300
-          {{ request()->is('admin/barbers*') ? 'text-gold' : 'text-gray-300 hover:bg-slate-800 hover:text-gold' }}">
-          Barbers
-          @if(request()->is('admin/barbers*'))
-          <span class="absolute -bottom-3 left-0 w-full h-0.5 bg-gold"></span>
-          @endif
-        </a>
-
-        <a href="{{ route('services.index') }}"
-          class="relative px-4 py-2 rounded-lg transition-all duration-300
-          {{ request()->is('admin/services*') ? 'text-gold' : 'text-gray-300 hover:bg-slate-800 hover:text-gold' }}">
-          Layanan
-          @if(request()->is('admin/services*'))
-          <span class="absolute -bottom-3 left-0 w-full h-0.5 bg-gold"></span>
-          @endif
-        </a>
-        <a href="{{ route('booking.index') }}"
-          class="relative px-4 py-2 rounded-lg transition-all duration-300
-          {{ request()->is('admin/booking*') ? 'text-gold' : 'text-gray-300 hover:bg-slate-800 hover:text-gold' }}">
-          Reservasi
-          @if(request()->is('admin/booking*'))
-          <span class="absolute -bottom-3 left-0 w-full h-0.5 bg-gold"></span>
-          @endif
-        </a>
-
+        <a href="/admin/dashboard" class="px-4 py-2 rounded-lg transition {{ request()->is('admin/dashboard') ? 'text-gold' : 'text-gray-300 hover:text-gold' }}">Dashboard</a>
+        <a href="{{ route('barbers.index') }}" class="px-4 py-2 rounded-lg transition {{ request()->is('admin/barbers*') ? 'text-gold' : 'text-gray-300 hover:text-gold' }}">Barbers</a>
+        <a href="{{ route('services.index') }}" class="px-4 py-2 rounded-lg transition {{ request()->is('admin/services*') ? 'text-gold' : 'text-gray-300 hover:text-gold' }}">Layanan</a>
+        <a href="{{ route('booking.index') }}" class="px-6 py-2 rounded-lg transition {{ request()->is('admin/booking*') ? 'text-gold' : 'text-gray-300 hover:text-gold' }}">Reservasi</a>
         <div class="h-6 w-px bg-gray-700 mx-2"></div>
-        <button class="bg-gray-800 text-sm px-4 py-2 rounded-lg hover:bg-red-600 transition">Logout</button>
+        <button class="bg-red-900/30 text-red-500 text-sm px-4 py-2 rounded-lg hover:bg-red-600 hover:text-white transition font-medium">Logout</button>
       </div>
 
       <div class="md:hidden">
-        <button id="menu-toggle" class="text-gold focus:outline-none text-2xl">
-          ☰
+        <button id="menu-toggle" class="text-gold p-2 focus:outline-none bg-slate-800 rounded-lg">
+          <svg id="icon-open" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+          </svg>
         </button>
       </div>
     </div>
 
-    <div id="mobile-menu" class="z-[100] fixed top-0 translate-x-[-100%] min-h-screen md:hidden bg-slate-900 border-t border-gray-800">
-      <div class="flex flex-col items-start px-6 py-4 space-y-2">
-        <a href="/admin/dashboard"
-          class="relative px-4 py-2 rounded-lg transition-all duration-300
-          {{ request()->is('admin/dashboard') ? 'text-gold' : 'text-gray-300 hover:bg-slate-800 hover:text-gold' }}">
-          Dashboard
-          @if(request()->is('admin/dashboard'))
-          <span class="absolute -bottom-1 left-0 w-full h-0.5 bg-gold"></span>
-          @endif
-        </a>
+    <div id="menu-overlay" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-[90] hidden transition-opacity duration-300 opacity-0"></div>
 
-        <a href="{{ route('barbers.index') }}"
-          class="relative px-4 py-2 rounded-lg transition-all duration-300
-          {{ request()->is('admin/barbers*') ? 'text-gold' : 'text-gray-300 hover:bg-slate-800 hover:text-gold' }}">
-          Barbers
-          @if(request()->is('admin/barbers*'))
-          <span class="absolute -bottom-1 left-0 w-full h-0.5 bg-gold"></span>
-          @endif
-        </a>
-
-        <a href="{{ route('services.index') }}"
-          class="relative px-4 py-2 rounded-lg transition-all duration-300
-          {{ request()->is('admin/services*') ? 'text-gold' : 'text-gray-300 hover:bg-slate-800 hover:text-gold' }}">
-          Layanan
-          @if(request()->is('admin/services*'))
-          <span class="absolute -bottom-1 left-0 w-full h-0.5 bg-gold"></span>
-          @endif
-        </a>
-        <a href="{{ route('booking.index') }}"
-          class="relative px-4 py-2 rounded-lg transition-all duration-300
-          {{ request()->is('admin/booking*') ? 'text-gold' : 'text-gray-300 hover:bg-slate-800 hover:text-gold' }}">
-          Reservasi
-          @if(request()->is('admin/booking*'))
-          <span class="absolute -bottom-1 left-0 w-full h-0.5 bg-gold"></span>
-          @endif
-        </a>
+    <div id="mobile-menu" class="fixed top-0 left-0 bottom-0 w-[280px] bg-slate-900 z-[100] transform -translate-x-full transition-transform duration-300 ease-in-out border-r border-gray-800 flex flex-col shadow-2xl">
+      <div class="p-6 border-b border-gray-800 flex justify-between items-center">
+        <span class="text-gold font-bold tracking-widest uppercase">Menu Navigasi</span>
+        <button id="menu-close" class="text-gray-400 hover:text-white">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
       </div>
-      <div class="px-6 py-4">
-        <button class="w-full mb-24 bg-gray-800 hover:bg-red-600 text-sm px-4 py-2 rounded-lg transition">Logout</button>
+
+      <div class="flex flex-col p-4 space-y-2 flex-grow">
+        @php
+        $navItems = [
+        ['url' => '/admin/dashboard', 'name' => 'Dashboard', 'pattern' => 'admin/dashboard'],
+        ['url' => route('barbers.index'), 'name' => 'Barbers', 'pattern' => 'admin/barbers*'],
+        ['url' => route('services.index'), 'name' => 'Layanan', 'pattern' => 'admin/services*'],
+        ['url' => route('booking.index'), 'name' => 'Reservasi', 'pattern' => 'admin/booking*'],
+        ];
+        @endphp
+
+        @foreach($navItems as $item)
+        <a href="{{ $item['url'] }}"
+          class="flex items-center px-4 py-3 rounded-xl transition-all duration-200 {{ request()->is($item['pattern']) ? 'bg-gold text-slate-900 font-bold' : 'text-gray-300 hover:bg-slate-800 hover:text-gold' }}">
+          {{ $item['name'] }}
+        </a>
+        @endforeach
+      </div>
+
+      <div class="p-6 border-t border-gray-800">
+        <button class="w-full bg-red-900/20 text-red-500 hover:bg-red-600 hover:text-white py-3 rounded-xl transition font-bold flex items-center justify-center gap-2">
+          <span>Logout</span>
+        </button>
       </div>
     </div>
   </nav>
@@ -149,13 +114,31 @@
 
   <script>
     const btnToggle = document.getElementById('menu-toggle');
+    const btnClose = document.getElementById('menu-close');
     const mobileMenu = document.getElementById('mobile-menu');
+    const overlay = document.getElementById('menu-overlay');
 
-    btnToggle.addEventListener('click', () => {
-    mobileMenu.classList.toggle('translate-x-[-100%]');
-    });
+    function toggleMenu() {
+      const isOpen = !mobileMenu.classList.contains('-translate-x-full');
 
+      if (isOpen) {
+        // Close
+        mobileMenu.classList.add('-translate-x-full');
+        overlay.classList.add('opacity-0');
+        setTimeout(() => overlay.classList.add('hidden'), 300);
+      } else {
+        // Open
+        overlay.classList.remove('hidden');
+        setTimeout(() => overlay.classList.remove('opacity-0'), 10);
+        mobileMenu.classList.remove('-translate-x-full');
+      }
+    }
+
+    btnToggle.addEventListener('click', toggleMenu);
+    btnClose.addEventListener('click', toggleMenu);
+    overlay.addEventListener('click', toggleMenu); // Klik area gelap untuk tutup
   </script>
+
 </body>
 
 </html>

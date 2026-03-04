@@ -39,7 +39,7 @@
 
     <main class="container mx-auto py-10 px-6">
         <div class="max-w-2xl mx-auto">
-            <h2 class="text-3xl font-bold text-center mb-2">Booking <span class="text-gold">Appointment</span></h2>
+            <h2 class="text-3xl font-bold text-center mb-2">Booking <span class="text-gold">Reservasi</span></h2>
             <p class="text-gray-400 text-center mb-8">Silakan pilih layanan dan waktu yang tersedia</p>
 
             @if(session('success'))
@@ -140,7 +140,7 @@
                 <!-- Submit Button -->
                 <button type="submit"
                     class="w-full bg-gold text-slate-900 font-bold py-4 rounded-lg hover:scale-[1.02] transition transform">
-                    Book Now
+                    Booking Sekarang
                 </button>
             </form>
         </div>
@@ -149,7 +149,7 @@
     <!-- Footer -->
     <footer class="border-t border-gray-800 bg-slate-900 mt-10 py-6">
         <div class="container mx-auto px-6 text-center text-gray-500 text-sm">
-            <p>&copy; 2024 Danny's Barbershop. All rights reserved.</p>
+            <p>&copy; 2026 Danny's Barbershop. Hak cipta dilindungi.</p>
         </div>
     </footer>
 
