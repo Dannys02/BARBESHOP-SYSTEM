@@ -62,7 +62,7 @@
         <a href="{{ route('services.index') }}"
           class="relative px-4 py-2 rounded-lg transition-all duration-300
           {{ request()->is('admin/services*') ? 'text-gold' : 'text-gray-300 hover:bg-slate-800 hover:text-gold' }}">
-          Services
+          Layanan
           @if(request()->is('admin/services*'))
           <span class="absolute -bottom-3 left-0 w-full h-0.5 bg-gold"></span>
           @endif
@@ -70,7 +70,7 @@
         <a href="{{ route('booking.index') }}"
           class="relative px-4 py-2 rounded-lg transition-all duration-300
           {{ request()->is('admin/booking*') ? 'text-gold' : 'text-gray-300 hover:bg-slate-800 hover:text-gold' }}">
-          Appointments
+          Reservasi
           @if(request()->is('admin/booking*'))
           <span class="absolute -bottom-3 left-0 w-full h-0.5 bg-gold"></span>
           @endif
@@ -110,7 +110,7 @@
         <a href="{{ route('services.index') }}"
           class="relative px-4 py-2 rounded-lg transition-all duration-300
           {{ request()->is('admin/services*') ? 'text-gold' : 'text-gray-300 hover:bg-slate-800 hover:text-gold' }}">
-          Services
+          Layanan
           @if(request()->is('admin/services*'))
           <span class="absolute -bottom-1 left-0 w-full h-0.5 bg-gold"></span>
           @endif
@@ -118,7 +118,7 @@
         <a href="{{ route('booking.index') }}"
           class="relative px-4 py-2 rounded-lg transition-all duration-300
           {{ request()->is('admin/booking*') ? 'text-gold' : 'text-gray-300 hover:bg-slate-800 hover:text-gold' }}">
-          Appointments
+          Reservasi
           @if(request()->is('admin/booking*'))
           <span class="absolute -bottom-1 left-0 w-full h-0.5 bg-gold"></span>
           @endif

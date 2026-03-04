@@ -35,35 +35,36 @@ class AppointmentController extends Controller
         ]);
 
         $isBooked = Appointment::where('barber_id', $request->barber_id)
+            ->where('service_id', $request->service_id)
             ->where('booking_date', $request->booking_date)
-            ->where('booking_time', $request->service_id)
+            ->where('booking_time', $request->booking_time)
             ->where('status', '!=', 'batal')
             ->exists();
 
         if ($isBooked) {
-            return back()->withErros(['booking_time' => 'Barber sudah ada jadwal di jam tersebut. Pilih jam lain ya!'])->withInput();
+            return back()->withErrors(['booking_time' => 'Barber sudah ada jadwal di jam tersebut. Pilih jam lain ya!'])->withInput();
         }
 
         Appointment::create($request->all());
 
-        return redirect()->back()->with('succes', 'Booking berhasil! Kami tunggu kedatangannya.');
+        return redirect()->back()->with('success', 'Booking berhasil! Kami tunggu kedatangannya.');
     }
 
-    public function updateStatus(Request $request, Appointment $appointments)
+    public function updateStatus(Request $request, Appointment $appointment)
     {
         // Prevent changing status if already 'batal'
-        if ($appointments->status == 'batal') {
+        if ($appointment->status == 'batal') {
             return back()->with('error', 'Status batal tidak dapat diubah.');
         }
 
         // Prevent changing from 'selesai' to other status
-        if ($appointments->status == 'selesai') {
+        if ($appointment->status == 'selesai') {
             return back()->with('error', 'Status selesai tidak dapat diubah.');
         }
 
-        $appointments->update(['status' => $request->status]);
+        $appointment->update(['status' => $request->status]);
 
-        return back()->with('succes', 'Status jadwal berhasil diupdate!');
+        return back()->with('success', 'Status jadwal berhasil diupdate!');
     }
 }
 ?>

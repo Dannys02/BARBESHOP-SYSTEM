@@ -2,7 +2,7 @@
 
 @section('appointment')
 <div class="flex justify-between items-center mb-8">
-    <h2 class="text-3xl font-semibold">Daftar <span class="text-gold">Appointment</span></h2>
+    <h2 class="text-3xl font-semibold">Daftar <span class="text-gold">Reservasi</span></h2>
 </div>
 
 <div class="bg-slate-800 rounded-2xl border border-gray-700 overflow-hidden">
@@ -13,7 +13,7 @@
                     <th class="px-6 py-4">No</th>
                     <th class="px-6 py-4">Customer</th>
                     <th class="px-6 py-4">Barber</th>
-                    <th class="px-6 py-4">Service</th>
+                    <th class="px-6 py-4">Layanan</th>
                     <th class="px-6 py-4">Tanggal</th>
                     <th class="px-6 py-4">Jam</th>
                     <th class="px-6 py-4">Status</th>
