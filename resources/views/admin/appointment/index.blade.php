@@ -81,7 +81,7 @@
               </form>
               
               @elseif($appointment->status == 'batal')
-              <span class="text-red-600 font-bold">Dibatalkan</span>
+              <span class="text-gray-500 italic">Dibatalkan</span>
               @endif
 
               {{-- TOMBOL DESTROY --}}

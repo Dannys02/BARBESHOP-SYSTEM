@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Danny's | Admin Pages</title>
+  <title>Barbe'shop | Admin Pages</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
     /* Charcoal Dark background */
@@ -36,7 +36,7 @@
   <nav class="border-b border-gray-800 bg-slate-900 shadow-xl sticky top-0 z-50">
     <div class="container mx-auto px-6 py-4 flex justify-between items-center">
       <a href="#" class="text-2xl font-bold tracking-widest text-gold uppercase flex items-center gap-2">
-        <span class="text-3xl">✂</span> Danny's
+        <span class="text-3xl">✂</span> Barbe'shop
       </a>
 
       <div class="hidden md:flex items-center space-x-2">

@@ -55,12 +55,11 @@ class BarberController extends Controller {
     $request->validate([
       "name" => "required|string|max:255",
       "bio" => "required",
-      "photo" => "required|image|mimes:jpeg,jpg,png|max:2048",
+      "photo" => "nullable|image|mimes:jpeg,jpg,png|max:2048",
     ], [
       'name.required' => 'Nama wajib diisi',
       'name.max' => 'Nama maksimal 255 karakter',
       'bio.required' => 'Bio wajib diisi',
-      'photo.required' => 'Foto wajib diunggah',
       'photo.image' => 'File harus berupa gambar',
       'photo.mimes' => 'Foto harus jpeg, jpg, atau png',
       'photo.max' => 'Foto maksimal 2MB',
