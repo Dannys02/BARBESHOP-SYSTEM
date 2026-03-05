@@ -45,7 +45,13 @@
         <a href="{{ route('services.index') }}" class="px-4 py-2 rounded-lg transition {{ request()->is('admin/services*') ? 'text-gold' : 'text-gray-300 hover:text-gold' }}">Layanan</a>
         <a href="{{ route('booking.index') }}" class="px-6 py-2 rounded-lg transition {{ request()->is('admin/booking*') ? 'text-gold' : 'text-gray-300 hover:text-gold' }}">Reservasi</a>
         <div class="h-6 w-px bg-gray-700 mx-2"></div>
-        <button class="bg-red-900/30 text-red-500 text-sm px-4 py-2 rounded-lg hover:bg-red-600 hover:text-white transition font-medium">Logout</button>
+        <form method="POST" action="{{ route('logout') }}">
+          @csrf
+          <button type="submit" class="bg-red-900/20 text-red-500 px-4 py-2 rounded-lg hover:bg-red-600 hover:text-white transition">
+            Logout
+          </button>
+        </form>
+
       </div>
 
       <div class="md:hidden">
@@ -88,9 +94,13 @@
       </div>
 
       <div class="p-6 border-t border-gray-800">
-        <button class="w-full bg-red-900/20 text-red-500 hover:bg-red-600 hover:text-white py-3 rounded-xl transition font-bold flex items-center justify-center gap-2">
-          <span>Logout</span>
-        </button>
+        <form method="POST" action="{{ route('logout') }}">
+          @csrf
+          <button type="submit" class="bg-red-900/20 text-red-500 px-4 py-2 rounded-lg hover:bg-red-600 hover:text-white transition">
+            Logout
+          </button>
+        </form>
+
       </div>
     </div>
   </nav>
