@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+{!! NoCaptcha::renderJs() !!}
 
 <head>
     <meta charset="UTF-8">
@@ -136,6 +137,16 @@
                         <option value="20:00" {{ old('booking_time') == '20:00' ? 'selected' : '' }}>20:00</option>
                     </select>
                 </div>
+                
+                <div class="mb-4">
+    {!! NoCaptcha::display() !!}
+    @if ($errors->has('g-recaptcha-response'))
+        <span class="text-red-500 text-xs mt-1">
+            <strong>Silakan centang Captcha terlebih dahulu.</strong>
+        </span>
+    @endif
+</div>
+
 
                 <!-- Submit Button -->
                 <button type="submit"

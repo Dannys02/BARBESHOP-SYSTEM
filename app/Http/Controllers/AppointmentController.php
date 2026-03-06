@@ -29,6 +29,7 @@ class AppointmentController extends Controller
       'service_id' => 'required',
       'booking_date' => 'required|date|after_or_equal:today',
       'booking_time' => 'required',
+      'g-recaptcha-response' => 'required|captcha',
     ]);
 
     $isBooked = Appointment::where('barber_id', $request->barber_id)
@@ -41,10 +42,34 @@ class AppointmentController extends Controller
       return back()->withErrors(['booking_time' => 'Barber sudah ada jadwal di jam tersebut. Pilih jam lain ya!'])->withInput();
     }
 
+    $isActiveBooking = Appointment::where('customer_phone', $request->customer_phone)
+    ->where('status', ['pending', 'konfirmasi'])
+    ->exists();
+
+    if ($isActiveBooking) {
+      return back()->withErrors(['customer_phone' => 'Anda masih memiliki reservasi yang aktif. Selesaikan atau batalkan dulu ya!'])->withInput();
+    }
+
     Appointment::create($request->all());
 
     return redirect()->back()->with('success', 'Booking berhasil! Kami tunggu kedatangannya.');
   }
+
+  public function cekStatusForm() {
+    return view('booking.cek-status'); // Tampilkan form input nomor HP
+  }
+
+  public function cekStatusResult(Request $request) {
+    $request->validate(['customer_phone' => 'required']);
+
+    // Cari booking terakhir dari nomor HP tersebut
+    $booking = Appointment::where('customer_phone', $request->customer_phone)
+    ->latest()
+    ->first();
+
+    return view('booking.cek-status', compact('booking'));
+  }
+
 
   public function updateStatus(Request $request, Appointment $appointment) {
     // Prevent changing status if already 'batal'
@@ -62,7 +87,8 @@ class AppointmentController extends Controller
     return back()->with('success', 'Status jadwal berhasil diupdate!');
   }
 
-  public function destroy(Appointment $appointment) {
+  public function destroy($id) {
+    $appointment = Appointment::findOrFail($id);
     $appointment->delete();
     return redirect()->route('booking.index')->with('success', 'Data reservasi berhasil dihapus');
   }

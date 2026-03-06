@@ -69,6 +69,21 @@
                   Batal
                 </button>
               </form>
+              
+              @php
+              $phone = $appointment->customer_phone;
+              if (str_starts_with($phone, '0')) {
+              $phone = '62' . substr($phone, 1);
+              }
+
+              $pesan = "Halo Kak " . $appointment->customer_name . ", kami dari Danny's Barbershop ingin mengonfirmasi reservasi Anda pada tanggal " . $appointment->booking_date . " jam " . $appointment->booking_time . ". Apakah sudah sesuai?";
+              $waUrl = "https://wa.me/" . $phone . "?text=" . urlencode($pesan);
+              @endphp
+
+              <a href="{{ $waUrl }}" target="_blank"
+                class="bg-emerald-600 hover:bg-emerald-500 text-white px-3 py-1.5 rounded-lg flex items-center gap-2 text-xs transition">
+                <span>💬</span> Chat WA
+              </a>
 
               @elseif($appointment->status == 'konfirmasi')
               <form action="{{ route('booking.updateStatus', $appointment->id) }}" method="POST">
@@ -79,7 +94,7 @@
                   Selesaikan
                 </button>
               </form>
-              
+
               @elseif($appointment->status == 'batal')
               <span class="text-gray-500 italic">Dibatalkan</span>
               @endif

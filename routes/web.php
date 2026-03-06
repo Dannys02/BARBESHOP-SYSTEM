@@ -31,6 +31,9 @@ Route::get('/', function() {
 
 Route::get('/booking/create', [AppointmentController::class, 'create'])->name('booking.create');
 Route::post('/booking', [AppointmentController::class, 'store'])->name('booking.store');
+    // USER CEK STATUS
+    Route::get('/cek-status', [AppointmentController::class, 'cekStatusForm'])->name('booking.cekStatusForm');
+    Route::post('/cek-status', [AppointmentController::class, 'cekStatusResult'])->name('booking.cekStatusResult');
 
 Route::middleware(['auth'])->group(function() {
   Route::prefix("admin")->group(function() {
