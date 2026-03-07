@@ -48,7 +48,7 @@
     <button class="absolute top-6 right-6 text-gold text-4xl" onclick="document.getElementById('mobile-nav').classList.toggle('-translate-y-full')">&times;</button>
     <a href="#services" onclick="document.getElementById('mobile-nav').classList.add('-translate-y-full')">Layanan</a>
     <a href="#barbers" onclick="document.getElementById('mobile-nav').classList.add('-translate-y-full')">Barber</a>
-    <a href="{{ route('booking.create') }}" class="bg-gold text-slate-900 px-8 py-3 rounded-full">Booking Now</a>
+    <a href="{{ route('booking.create') }}" class="bg-gold text-slate-900 px-8 py-3 rounded-full">Booking Sekarang</a>
   </div>
 
   <section class="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
@@ -73,7 +73,7 @@
         <div class="h-1 w-20 bg-gold mx-auto"></div>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div class="grid grid-cols-1 md:grid-cols-3 justify-items-center gap-8">
         @foreach($services as $service)
         <div class="glass p-8 rounded-3xl hover:border-gold/50 transition group">
           <div class="w-12 h-12 bg-gold/10 rounded-2xl flex items-center justify-center text-gold mb-6 group-hover:bg-gold group-hover:text-slate-900 transition duration-500">
@@ -83,7 +83,7 @@
           <p class="text-gray-400 text-sm leading-relaxed mb-4">
             Layanan terbaik dengan hasil presisi dan produk berkualitas tinggi.
           </p>
-            <span class="text-gold font-bold text-lg">IDR {{ number_format($service->price ?? 0, 0, ',', '.') }}</span>
+          <span class="text-gold font-bold text-lg">IDR {{ number_format($service->price ?? 0, 0, ',', '.') }}</span>
         </div>
         @endforeach
       </div>

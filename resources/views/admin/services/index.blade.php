@@ -10,7 +10,7 @@
 
 <div class="bg-slate-800 rounded-2xl overflow-hidden border border-gray-700">
     <div class="overflow-x-auto">
-        <table class="w-full text-left">
+        <table id="tabelPesanan" class="w-full text-left">
             <thead class="bg-slate-900 text-gray-400 uppercase text-sm">
                 <tr>
                     <th class="px-6 py-4">No</th>
@@ -39,12 +39,12 @@
                     </td>
                     <td class="px-6 py-4">
                         <div class="flex justify-center space-x-2">
-                            <a href="{{ route('services.edit', $service->id) }}" class="px-4 py-2 bg-yellow-600 rounded-lg hover:bg-yellow-700 transition text-sm">Edit</a>
+                            <a href="{{ route('services.edit', $service->id) }}" class="px-4 py-2 bg-yellow-600 rounded-full hover:bg-yellow-700 transition text-sm">Edit</a>
 
                             <form action="{{ route('services.destroy', $service->id) }}" method="POST" onsubmit="return confirm('Yakin hapus layanan {{ $service->name }}?')">
                                 @csrf
                                 @method('DELETE')
-                                <button type="submit" class="px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700 transition text-sm">Hapus</button>
+                                <button type="submit" class="px-4 py-2 bg-red-600 text-white rounded-full hover:bg-red-700 transition text-sm">Hapus</button>
                             </form>
                         </div>
                     </td>

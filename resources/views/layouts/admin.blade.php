@@ -6,6 +6,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Barbe'shop | Admin Pages</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+  <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
   <style>
     /* Charcoal Dark background */
     body {
@@ -35,7 +37,7 @@
 
   <nav class="border-b border-gray-800 bg-slate-900 shadow-xl sticky top-0 z-50">
     <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-      <a href="#" class="text-2xl font-bold tracking-widest text-gold uppercase flex items-center gap-2">
+      <a href="/" class="text-2xl font-bold tracking-widest text-gold uppercase flex items-center gap-2">
         <span class="text-3xl">✂</span> Barbe'shop
       </a>
 
@@ -147,6 +149,39 @@
     btnToggle.addEventListener('click', toggleMenu);
     btnClose.addEventListener('click', toggleMenu);
     overlay.addEventListener('click', toggleMenu); // Klik area gelap untuk tutup
+
+    $(document).ready(function() {
+    $('#tabelPesanan').DataTable({ // Kamu bisa ganti selector ini jadi '.tabel-data' jika ingin seragam
+    "dom": 'tp',
+    "ordering": false,
+    "pageLength": 5,
+    "language": {
+    "emptyTable": "Data masih kosong!",
+    "paginate": {
+    "previous": "← Kembali",
+    "next": "Lanjut →"
+    }
+    },
+    "drawCallback": function(settings) {
+    // 1. Ambil ID tabel yang sedang diproses agar tidak salah sasaran
+    var api = this.api();
+    var tableId = settings.sTableId;
+
+    // 2. Hitung jumlah kolom dari header secara otomatis
+    var jumlahKolom = api.columns().header().length;
+
+    // 3. Styling baris kosong secara dinamis
+    $('#' + tableId + ' .dataTables_empty')
+    .addClass('text-center p-4 text-slate-600 font-medium italic')
+    .attr('colspan', jumlahKolom); // <--- Sekarang otomatis (bisa 3, 4, 5, dst)
+
+    // Styling Paginasi bawaan kamu
+    $('.dataTables_paginate').addClass('w-full border-t border-gray-700 flex justify-center py-6 px-12 items-center gap-1 whitespace-nowrap');
+    $('.paginate_button').addClass('px-3 py-2 bg-slate-700 rounded-md mx-1 text-xs font-bold hover:bg-slate-900 hover:text-white transition-colors');
+    $('.paginate_button.current').addClass('bg-slate-700 text-white');
+    },
+    });
+    });
   </script>
 
 </body>

@@ -7,7 +7,7 @@
 
 <div class="bg-slate-800 rounded-2xl border border-gray-700 overflow-hidden">
   <div class="overflow-x-auto">
-    <table class="w-full text-left text-gray-300">
+    <table id="tabelPesanan" class="w-full text-left text-gray-300">
       <thead class="bg-slate-900 text-gold uppercase text-sm font-bold">
         <tr>
           <th class="px-6 py-4">No</th>

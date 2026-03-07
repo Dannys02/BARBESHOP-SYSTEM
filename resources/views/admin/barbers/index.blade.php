@@ -18,12 +18,12 @@
             <p class="text-gray-400 text-sm mt-2 mb-4">{{ Str::limit($barber->bio, 100) }}</p>
 
             <div class="flex space-x-2">
-                <a href="{{ route('barbers.edit', $barber->id) }}" class="flex-1 text-center py-2 bg-yellow-600 rounded-lg hover:bg-yellow-700 transition">Edit</a>
+                <a href="{{ route('barbers.edit', $barber->id) }}" class="flex-1 text-center py-2 bg-yellow-600 rounded-full hover:bg-yellow-700 transition">Edit</a>
 
                 <form action="{{ route('barbers.destroy', $barber->id) }}" method="POST" class="flex-1" onsubmit="return confirm('Yakin hapus dan pecat {{ $barber->name }}?')">
                     @csrf
                     @method('DELETE')
-                    <button type="submit" class="w-full py-2 bg-red-600 text-white rounded-lg hover:bg-red-700 transition">Hapus</button>
+                    <button type="submit" class="w-full py-2 bg-red-600 text-white rounded-full hover:bg-red-700 transition">Hapus</button>
                 </form>
             </div>
         </div>
