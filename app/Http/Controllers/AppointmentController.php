@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Barber;
 use App\Models\Service;
 use App\Models\Appointment;
-
+use App\Models\Activity;
 
 class AppointmentController extends Controller
 {
@@ -51,7 +51,7 @@ class AppointmentController extends Controller
     }
 
     Appointment::create($request->all());
-
+    
     return redirect()->back()->with('success', 'Booking berhasil! Kami tunggu kedatangannya.');
   }
 
@@ -81,8 +81,12 @@ class AppointmentController extends Controller
     if ($appointment->status == 'selesai') {
       return back()->with('error', 'Status selesai tidak dapat diubah.');
     }
-
+    
+    $oldStatus = strtoupper($appointment->status);
     $appointment->update(['status' => $request->status]);
+    $newStatus = strtoupper($request->status);
+    
+    Activity::log("Update status {$appointment->customer_name}: $oldStatus -> $newStatus", "booking");
 
     return back()->with('success', 'Status jadwal berhasil diupdate!');
   }
@@ -90,6 +94,11 @@ class AppointmentController extends Controller
   public function destroy($id) {
     $appointment = Appointment::findOrFail($id);
     $appointment->delete();
+    $customer = $appointment->customer_name;
+    $date = $appointment->booking_date;
+    
+    Activity::log("Menghapus reservasi: $customer ($date)", "booking");
+    
     return redirect()->route('booking.index')->with('success', 'Data reservasi berhasil dihapus');
   }
 

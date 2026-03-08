@@ -31,9 +31,9 @@ Route::get('/', function() {
 
 Route::get('/booking/create', [AppointmentController::class, 'create'])->name('booking.create');
 Route::post('/booking', [AppointmentController::class, 'store'])->name('booking.store');
-    // USER CEK STATUS
-    Route::get('/cek-status', [AppointmentController::class, 'cekStatusForm'])->name('booking.cekStatusForm');
-    Route::post('/cek-status', [AppointmentController::class, 'cekStatusResult'])->name('booking.cekStatusResult');
+// USER CEK STATUS
+Route::get('/cek-status', [AppointmentController::class, 'cekStatusForm'])->name('booking.cekStatusForm');
+Route::post('/cek-status', [AppointmentController::class, 'cekStatusResult'])->name('booking.cekStatusResult');
 
 Route::middleware(['auth'])->group(function() {
   Route::prefix("admin")->group(function() {
@@ -42,8 +42,9 @@ Route::middleware(['auth'])->group(function() {
       $barbers = App\Models\Barber::count();
       $services = App\Models\Service::count();
       $appointments = App\Models\Appointment::count();
+      $recentActivities = \App\Models\Activity::latest()->take(5)->get();
 
-      return view("admin.dashboard", compact("barbers", "services", "appointments"));
+      return view("admin.dashboard", compact("barbers", "services", "appointments", "recentActivities"));
     });
 
     // CRUD BARBERS

@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Storage;
 use App\Models\Barber;
 use App\Models\Service;
 use App\Models\Appointment;
+use App\Models\Activity;
 
 class BarberController extends Controller {
   public function index() {
@@ -44,6 +45,8 @@ class BarberController extends Controller {
       "photo" => $path,
     ]);
 
+    Activity::log("Menambahkan barber baru: '$request->name'", "barber");
+
     return redirect()->route("barbers.index")->with("succes", "Barber berhasil ditambahkan!");
   }
 
@@ -52,6 +55,8 @@ class BarberController extends Controller {
   }
 
   public function update(Request $request, Barber $barber) {
+    $oldData = $barber->getOriginal();
+
     $request->validate([
       "name" => "required|string|max:255",
       "bio" => "required",
@@ -79,7 +84,23 @@ class BarberController extends Controller {
       $path = $request->file("photo")->store("barbers", "public");
       $barber->photo = $path; // SIMPAN PATH STRING
     }
+
+    // Cek apa yang berubah sebelum di save
+    $changes = [];
+    if ($barber->isDirty('name')) $changes[] = "Nama";
+    if ($barber->isDirty('bio')) $changes[] = "Bio";
+    if ($barber->isDirty('photo')) $changes[] = "Foto Profil";
+
     $barber->save();
+
+    if (count($changes) > 0) {
+      $detailChanges = implode(', ', $changes);
+      Activity::log(
+        "Memperbarui data barber: '{$barber->name}' (Bagian: {$detailChanges})",
+        "barber"
+      );
+    }
+
     return redirect()->route("barbers.index")->with("success", "Barber berhasil diupdate!");
   }
 
@@ -89,6 +110,8 @@ class BarberController extends Controller {
     }
 
     $barber->delete();
+    
+    Activity::log("Menghapus barber: '$barber->name' dari sistem", "barber");
 
     return redirect()->route("barbers.index")->with("succes", "Barber berhasil dihapus!");
   }
