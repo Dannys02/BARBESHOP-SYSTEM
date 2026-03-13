@@ -52,7 +52,7 @@ class AppointmentController extends Controller
 
     Appointment::create($request->all());
     
-    return redirect()->back()->with('success', 'Booking berhasil! Kami tunggu kedatangannya.');
+    return redirect()->back()->with('success', 'Booking berhasil! Cek status jadwal kamu. Kami tunggu kedatangannya.');
   }
 
   public function cekStatusForm() {
