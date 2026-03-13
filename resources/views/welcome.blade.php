@@ -27,16 +27,19 @@
 <body class="text-gray-200">
 
   <nav class="fixed w-full z-50 glass">
-    <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+    <div class="px-12 py-4 flex justify-between items-center">
       <a href="#" class="text-2xl font-extrabold tracking-tighter text-gold uppercase">
         ✂ Barbeshop
       </a>
 
-      <div class="hidden md:flex items-center space-x-8 text-sm font-semibold uppercase tracking-widest">
+      <div class="hidden md:flex items-center space-x-4 text-sm font-semibold uppercase tracking-widest">
         <a href="#services" class="hover:text-gold transition">Layanan</a>
         <a href="#barbers" class="hover:text-gold transition">Barber</a>
         <a href="{{ route('booking.create') }}" class="bg-gold text-slate-900 px-6 py-2 rounded-full hover:scale-105 transition-all shadow-lg shadow-gold/20">
           Booking Sekarang
+        </a>
+        <a href="/cek-status" class="border border-gold bg-transparent text-white px-8 py-3 rounded-full hover:bg-white/10 transition">
+          Cek Status Jadwal
         </a>
       </div>
 
