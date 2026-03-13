@@ -43,7 +43,7 @@ class AppointmentController extends Controller
     }
 
     $isActiveBooking = Appointment::where('customer_phone', $request->customer_phone)
-    ->where('status', ['pending', 'konfirmasi'])
+    ->whereIn('status', ['pending', 'konfirmasi'])
     ->exists();
 
     if ($isActiveBooking) {
@@ -51,7 +51,7 @@ class AppointmentController extends Controller
     }
 
     Appointment::create($request->all());
-    
+
     return redirect()->back()->with('success', 'Booking berhasil! Cek status jadwal kamu. Kami tunggu kedatangannya.');
   }
 
@@ -81,11 +81,11 @@ class AppointmentController extends Controller
     if ($appointment->status == 'selesai') {
       return back()->with('error', 'Status selesai tidak dapat diubah.');
     }
-    
+
     $oldStatus = strtoupper($appointment->status);
     $appointment->update(['status' => $request->status]);
     $newStatus = strtoupper($request->status);
-    
+
     Activity::log("Update status {$appointment->customer_name}: $oldStatus -> $newStatus", "booking");
 
     return back()->with('success', 'Status jadwal berhasil diupdate!');
@@ -96,9 +96,9 @@ class AppointmentController extends Controller
     $appointment->delete();
     $customer = $appointment->customer_name;
     $date = $appointment->booking_date;
-    
+
     Activity::log("Menghapus reservasi: $customer ($date)", "booking");
-    
+
     return redirect()->route('booking.index')->with('success', 'Data reservasi berhasil dihapus');
   }
 

@@ -43,7 +43,7 @@
 
       <div class="hidden md:flex items-center space-x-2">
         <a href="/admin/dashboard" class="px-4 py-2 rounded-lg transition {{ request()->is('admin/dashboard') ? 'text-gold' : 'text-gray-300 hover:text-gold' }}">Dashboard</a>
-        <a href="{{ route('barbers.index') }}" class="px-4 py-2 rounded-lg transition {{ request()->is('admin/barbers*') ? 'text-gold' : 'text-gray-300 hover:text-gold' }}">Barbers</a>
+        <a href="{{ route('barbers.index') }}" class="px-4 py-2 rounded-lg transition {{ request()->is('admin/barbers*') ? 'text-gold' : 'text-gray-300 hover:text-gold' }}">Pegawai</a>
         <a href="{{ route('services.index') }}" class="px-4 py-2 rounded-lg transition {{ request()->is('admin/services*') ? 'text-gold' : 'text-gray-300 hover:text-gold' }}">Layanan</a>
         <a href="{{ route('booking.index') }}" class="px-6 py-2 rounded-lg transition {{ request()->is('admin/booking*') ? 'text-gold' : 'text-gray-300 hover:text-gold' }}">Reservasi</a>
         <div class="h-6 w-px bg-gray-700 mx-2"></div>
@@ -81,7 +81,7 @@
         @php
         $navItems = [
         ['url' => '/admin/dashboard', 'name' => 'Dashboard', 'pattern' => 'admin/dashboard'],
-        ['url' => route('barbers.index'), 'name' => 'Barbers', 'pattern' => 'admin/barbers*'],
+        ['url' => route('barbers.index'), 'name' => 'Pegawai', 'pattern' => 'admin/barbers*'],
         ['url' => route('services.index'), 'name' => 'Layanan', 'pattern' => 'admin/services*'],
         ['url' => route('booking.index'), 'name' => 'Reservasi', 'pattern' => 'admin/booking*'],
         ];
@@ -154,9 +154,9 @@
     $('#tabelPesanan').DataTable({ // Kamu bisa ganti selector ini jadi '.tabel-data' jika ingin seragam
     "dom": 'tp',
     "ordering": false,
-    "pageLength": 5,
+    "pageLength": 10,
     "language": {
-    "emptyTable": "Data masih kosong!",
+    "emptyTable": "Data tabel ini kosong!",
     "paginate": {
     "previous": "← Kembali",
     "next": "Lanjut →"
@@ -179,6 +179,7 @@
     $('.dataTables_paginate').addClass('w-full border-t border-gray-700 flex justify-center py-6 px-12 items-center gap-1 whitespace-nowrap');
     $('.paginate_button').addClass('px-3 py-2 bg-slate-700 rounded-md mx-1 text-xs font-bold hover:bg-slate-900 hover:text-white transition-colors');
     $('.paginate_button.current').addClass('bg-slate-700 text-white');
+    $('.dataTables_empty').addClass('text-white');
     },
     });
     });

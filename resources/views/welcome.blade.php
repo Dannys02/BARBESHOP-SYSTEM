@@ -27,7 +27,7 @@
 <body class="text-gray-200">
 
   <nav class="fixed w-full z-50 glass">
-    <div class="px-12 py-4 flex justify-between items-center">
+    <div class="px-6 md:px-12 py-4 flex justify-between items-center">
       <a href="#" class="text-2xl font-extrabold tracking-tighter text-gold uppercase">
         ✂ Barbeshop
       </a>
@@ -38,7 +38,7 @@
         <a href="{{ route('booking.create') }}" class="bg-gold text-slate-900 px-6 py-2 rounded-full hover:scale-105 transition-all shadow-lg shadow-gold/20">
           Booking Sekarang
         </a>
-        <a href="/cek-status" class="border border-gold bg-transparent text-white px-8 py-3 rounded-full hover:bg-white/10 transition">
+        <a href="/cek-status" class="border border-gold bg-transparent text-white px-6 py-2 rounded-full hover:bg-white/10 transition">
           Cek Status Jadwal
         </a>
       </div>
@@ -47,7 +47,7 @@
     </div>
   </nav>
 
-  <div id="mobile-nav" class="fixed inset-0 bg-slate-900 z-[60] flex flex-col items-center justify-center space-y-8 text-2xl font-bold transform -translate-y-full transition-transform duration-500 md:hidden">
+  <div id="mobile-nav" class="fixed px-0 inset-0 bg-slate-900 z-[60] flex flex-col items-center justify-center space-y-8 text-2xl font-bold transform -translate-y-full transition-transform duration-500 md:hidden">
     <button class="absolute top-6 right-6 text-gold text-4xl" onclick="document.getElementById('mobile-nav').classList.toggle('-translate-y-full')">&times;</button>
     <a href="#services" onclick="document.getElementById('mobile-nav').classList.add('-translate-y-full')">Layanan</a>
     <a href="#barbers" onclick="document.getElementById('mobile-nav').classList.add('-translate-y-full')">Barber</a>
