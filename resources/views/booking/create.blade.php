@@ -5,7 +5,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Danny's Barbershop - Booking</title>
+    <title>Barbershop - Booking</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         body {
@@ -32,7 +32,7 @@
     <nav class="border-b border-gray-800 bg-slate-900 shadow-xl">
         <div class="container mx-auto px-6 py-4 flex justify-between items-center">
             <a href="/" class="text-2xl font-bold tracking-widest text-gold uppercase flex items-center gap-2">
-                <span>✂</span> Danny's
+                <span>✂</span>Barbeshop
             </a>
             <a href="/" class="text-gray-300 hover:text-gold transition">Kembali</a>
         </div>
@@ -160,7 +160,7 @@
     <!-- Footer -->
     <footer class="border-t border-gray-800 bg-slate-900 mt-10 py-6">
         <div class="container mx-auto px-6 text-center text-gray-500 text-sm">
-            <p>&copy; 2026 Danny's Barbershop. Hak cipta dilindungi.</p>
+            <p>&copy; 2026 Barbershop. Hak cipta dilindungi.</p>
         </div>
     </footer>
 

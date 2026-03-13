@@ -49,6 +49,9 @@
     <a href="#services" onclick="document.getElementById('mobile-nav').classList.add('-translate-y-full')">Layanan</a>
     <a href="#barbers" onclick="document.getElementById('mobile-nav').classList.add('-translate-y-full')">Barber</a>
     <a href="{{ route('booking.create') }}" class="bg-gold text-slate-900 px-8 py-3 rounded-full">Booking Sekarang</a>
+    <a href="/cek-status" class="border border-gold bg-transparent text-white px-8 py-3 rounded-full hover:bg-white/10 transition">
+      Cek Status Jadwal
+    </a>
   </div>
 
   <section class="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
@@ -92,7 +95,7 @@
 
   <section id="barbers" class="py-24">
     <div class="container mx-auto px-6 text-center">
-      <h2 class="text-3xl font-bold mb-16">Pekerja <span class="text-gold">Barber</span></h2>
+      <h2 class="text-3xl font-bold mb-16">Pegawai <span class="text-gold">Barbershop</span></h2>
       <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
         @foreach($barbers as $barber)
         <div class="group">
