@@ -31,10 +31,12 @@ class AppointmentController extends Controller
       'booking_time' => 'required',
       'g-recaptcha-response' => 'required|captcha',
     ]);
+    
+    $bookingTime = $request->booking_time . ':00';
 
     $isBooked = Appointment::where('barber_id', $request->barber_id)
     ->where('booking_date', $request->booking_date)
-    ->where('booking_time', $request->booking_time)
+    ->where('booking_time', $bookingTime)
     ->whereIn('status', ['pending', 'konfirmasi'])
     ->exists();
 
@@ -50,7 +52,9 @@ class AppointmentController extends Controller
       return back()->withErrors(['customer_phone' => 'Anda masih memiliki reservasi yang aktif. Selesaikan atau batalkan dulu ya!'])->withInput();
     }
 
-    Appointment::create($request->all());
+    $data = $request->all();
+    $data['booking_time'] = $bookingTime;
+    Appointment::create($data);
 
     return redirect()->back()->with('success', 'Booking berhasil! Cek status jadwal kamu. Kami tunggu kedatangannya.');
   }
