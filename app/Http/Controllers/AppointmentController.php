@@ -31,7 +31,7 @@ class AppointmentController extends Controller
       'booking_time' => 'required',
       'g-recaptcha-response' => 'required|captcha',
     ]);
-    
+
     $bookingTime = $request->booking_time . ':00';
 
     $isBooked = Appointment::where('barber_id', $request->barber_id)
@@ -41,7 +41,7 @@ class AppointmentController extends Controller
     ->exists();
 
     if ($isBooked) {
-      return back()->withErrors(['booking_time' => 'Barber sudah ada jadwal di jam tersebut. Pilih jam lain ya!'])->withInput();
+      return back()->with('error', 'Barber sudah ada jadwal di jam tersebut. Pilih jam lain ya!')->withInput();
     }
 
     $isActiveBooking = Appointment::where('customer_phone', $request->customer_phone)
@@ -49,7 +49,7 @@ class AppointmentController extends Controller
     ->exists();
 
     if ($isActiveBooking) {
-      return back()->withErrors(['customer_phone' => 'Anda masih memiliki reservasi yang aktif. Selesaikan atau batalkan dulu ya!'])->withInput();
+      return back()->with('error', 'Anda masih memiliki reservasi yang aktif. Selesaikan atau batalkan dulu ya!')->withInput();
     }
 
     $data = $request->all();
