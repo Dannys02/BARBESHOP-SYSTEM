@@ -41,7 +41,7 @@ class AppointmentController extends Controller
     ->exists();
 
     if ($isBooked) {
-      return back()->with('error', 'Barber sudah ada jadwal di jam tersebut. Pilih jam lain ya!')->withInput();
+      return redirect()->back()->with('error', 'Pegawai yang dipilih sudah ada jadwal di jam tersebut. Pilih jam lain ya!')->withInput();
     }
 
     $isActiveBooking = Appointment::where('customer_phone', $request->customer_phone)
@@ -49,7 +49,7 @@ class AppointmentController extends Controller
     ->exists();
 
     if ($isActiveBooking) {
-      return back()->with('error', 'Anda masih memiliki reservasi yang aktif. Selesaikan atau batalkan dulu ya!')->withInput();
+      return redirect()->back()->with('error', 'Nomor anda masih memiliki reservasi yang aktif. Selesaikan atau batalkan dulu ya!')->withInput();
     }
 
     $data = $request->all();

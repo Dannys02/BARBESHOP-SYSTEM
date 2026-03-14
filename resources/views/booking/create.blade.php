@@ -80,10 +80,10 @@
 
         <!-- Pilih Barber -->
         <div class="mb-6">
-          <label for="barber_id" class="block text-sm font-semibold text-gray-300 mb-2">Pilih Barber</label>
+          <label for="barber_id" class="block text-sm font-semibold text-gray-300 mb-2">Pilih Pegawai</label>
           <select name="barber_id" id="barber_id" required
             class="w-full bg-slate-700 text-white px-4 py-3 rounded-lg border border-gray-600 focus:border-gold focus:outline-none transition">
-            <option value="">-- Pilih Barber --</option>
+            <option value="">-- Pilih Pegawai --</option>
             @foreach($barbers as $barber)
             <option value="{{ $barber->id }}" {{ old('barber_id') == $barber->id ? 'selected' : '' }}>
               {{ $barber->name }}
