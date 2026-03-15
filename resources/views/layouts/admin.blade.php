@@ -30,6 +30,38 @@
     #mobile-menu {
       transition: all 0.3s ease-in-out;
     }
+
+    .dataTables_paginate {
+      display: flex !important;
+      justify-content: center !important;
+      align-items: center !important;
+      gap: 0.5rem !important;
+      padding: 1.5rem 0 !important;
+      width: 100% !important;
+      border-top: 1px solid #374151 !important;
+      box-sizing: border-box !important;
+    }
+
+    .paginate_button {
+      padding: 0.5rem 0.75rem !important;
+      background-color: #334155 !important;
+      border-radius: 0.375rem !important;
+      font-size: 0.75rem !important;
+      font-weight: 700 !important;
+      color: white !important;
+      cursor: pointer !important;
+    }
+
+    .paginate_button.current,
+    .paginate_button.current:hover {
+      background-color: #0f172a !important;
+      color: white !important;
+    }
+
+    .paginate_button:hover {
+      background-color: #0f172a !important;
+      color: white !important;
+    }
   </style>
 </head>
 
@@ -118,6 +150,7 @@
     @yield('barber')
     @yield('create_barber')
     @yield('edit_barber')
+    @yield('show_barber')
     @yield('service')
     @yield('create_service')
     @yield('edit_service')
@@ -151,7 +184,7 @@
     overlay.addEventListener('click', toggleMenu); // Klik area gelap untuk tutup
 
     $(document).ready(function() {
-    $('#tabelPesanan').DataTable({ // Kamu bisa ganti selector ini jadi '.tabel-data' jika ingin seragam
+    var table = $('#tabelPesanan').DataTable({
     "dom": 'tp',
     "ordering": false,
     "pageLength": 10,
@@ -163,24 +196,20 @@
     }
     },
     "drawCallback": function(settings) {
-    // 1. Ambil ID tabel yang sedang diproses agar tidak salah sasaran
     var api = this.api();
     var tableId = settings.sTableId;
-
-    // 2. Hitung jumlah kolom dari header secara otomatis
     var jumlahKolom = api.columns().header().length;
-
-    // 3. Styling baris kosong secara dinamis
     $('#' + tableId + ' .dataTables_empty')
-    .addClass('text-center p-4 text-slate-600 font-medium italic')
-    .attr('colspan', jumlahKolom); // <--- Sekarang otomatis (bisa 3, 4, 5, dst)
-
-    // Styling Paginasi bawaan kamu
-    $('.dataTables_paginate').addClass('w-full border-t border-gray-700 flex justify-center py-6 px-12 items-center gap-1 whitespace-nowrap');
-    $('.paginate_button').addClass('px-3 py-2 bg-slate-700 rounded-md mx-1 text-xs font-bold hover:bg-slate-900 hover:text-white transition-colors');
-    $('.paginate_button.current').addClass('bg-slate-700 text-white');
-    $('.dataTables_empty').addClass('text-white');
+    .addClass('text-center p-12 text-slate-400 font-medium italic')
+    .attr('colspan', jumlahKolom);
     },
+    "initComplete": function() {
+    // Ambil wrapper yang dibuat DataTables
+    var $wrapper = $('#tabelPesanan').closest('.dataTables_wrapper');
+
+    // Bungkus hanya bagian tabel (bukan paginate) dengan overflow-x-auto
+    $wrapper.find('table').wrap('<div style="overflow-x:auto;"></div>');
+    }
     });
     });
   </script>

@@ -26,12 +26,12 @@
         <td class="p-4">
           <span class="font-semibold text-gold">{{ $service->name }}</span>
         </td>
-        <td class="p-4 text-gray-300">
+        <td class="p-4 text-gray-300 whitespace-nowrap">
           <span class="bg-green-600/20 text-green-400 px-3 py-1 rounded-full text-sm font-semibold">
             Rp {{ number_format($service->price, 0, ',', '.') }}
           </span>
         </td>
-        <td class="p-4 text-gray-300">
+        <td class="p-4 text-gray-300 whitespace-nowrap">
           <span class="bg-blue-600/20 text-blue-400 px-3 py-1 rounded-full text-sm font-semibold">
             {{ $service->duration }} menit
           </span>

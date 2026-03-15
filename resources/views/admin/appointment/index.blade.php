@@ -5,8 +5,9 @@
   <h2 class="text-3xl font-semibold">Daftar <span class="text-gold">Reservasi</span></h2>
 </div>
 
-<div class="bg-slate-800 rounded-2xl border border-gray-700 overflow-x-auto">
-  <table id="tabelPesanan" class="w-full text-left text-gray-300 border-collapse">
+<div class="bg-slate-800 rounded-2xl border border-gray-700">
+  <div class="overflow-x-auto rounded-2xl">
+    <table id="tabelPesanan" class="w-full text-left text-gray-300 border-collapse">
     <thead class="bg-slate-900 text-gold uppercase text-sm font-bold">
       <tr>
         <th class="p-4 text-xs font-bold">No</th>
@@ -147,6 +148,7 @@
       @endforelse
     </tbody>
   </table>
+  </div>
 </div>
 
 @if($appointments->count() > 0)

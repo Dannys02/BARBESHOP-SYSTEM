@@ -22,6 +22,20 @@
       backdrop-filter: blur(12px);
       border: 1px solid rgba(255,255,255,0.1);
     }
+
+    /* State Awal: Opacity 0 dan Geser Bawah 50px */
+    .from-bottom {
+      opacity: 0;
+      transform: translateY(50px);
+      transition: all 1s ease-out;
+      /* Durasi 1 detik sesuai request */
+    }
+
+    /* State Saat Terlihat di Layar: Opacity 100 dan Posisi Normal */
+    .from-bottom.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
   </style>
 </head>
 <body class="text-gray-200">
@@ -58,30 +72,30 @@
   </div>
 
   <section class="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
-    <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1503951914875-452162b0f3f1?auto=format&fit=crop&q=80')] bg-cover bg-center opacity-20 scale-110"></div>
+    <div style="background-image: url('{{ asset('assets/img/Home.webp') }}')" class="absolute inset-0 bg-cover bg-center opacity-20 scale-110"></div>
     <div class="container mx-auto px-6 relative z-10 text-center">
-      <h4 class="text-gold font-bold tracking-[0.3em] uppercase mb-4 animate-pulse">Classic & Modern</h4>
-      <h1 class="text-5xl md:text-8xl font-black mb-6 leading-tight">Gaya Rambut <br><span class="text-transparent bg-clip-text bg-gradient-to-r from-amber-200 to-yellow-500">Karakter Kamu.</span></h1>
-      <p class="text-gray-400 max-w-2xl mx-auto mb-10 text-lg">
+      <h4 class="from-bottom text-gold font-bold tracking-[0.3em] uppercase mb-4 animate-pulse">Classic & Modern</h4>
+      <h1 style="transition-delay: 0.1s;" class="from-bottom text-5xl md:text-8xl font-black mb-6 leading-tight">Gaya Rambut <br><span class="text-transparent bg-clip-text bg-gradient-to-r from-amber-200 to-yellow-500">Karakter Kamu.</span></h1>
+      <p style="transition-delay: 0.2s;" class="from-bottom text-gray-400 max-w-2xl mx-auto mb-10 text-lg">
         Sentuhan profesional untuk pria yang menghargai detail. Temukan kenyamanan dan gaya terbaik di Barbershop.
       </p>
       <div class="flex flex-col md:flex-row justify-center gap-4">
-        <a href="{{ route('booking.create') }}" class="px-10 py-4 bg-gold text-slate-900 font-bold rounded-xl hover:bg-yellow-400 transition transform hover:-translate-y-1">Mulai Reservasi</a>
-        <a href="#services" class="px-10 py-4 border border-gray-600 rounded-xl font-bold hover:bg-white/10 transition">Lihat Katalog</a>
+        <a style="transition-delay: 0.3s;" href="{{ route('booking.create') }}" class="from-bottom px-10 py-4 bg-gold text-slate-900 font-bold rounded-xl hover:bg-yellow-400">Mulai Reservasi</a>
+        <a style="transition-delay: 0.4s;" href="#services" class="from-bottom px-10 py-4 border border-gray-600 rounded-xl font-bold hover:bg-white/10">Lihat Katalog</a>
       </div>
     </div>
   </section>
 
   <section id="services" class="py-24 bg-slate-900/50">
     <div class="container mx-auto px-6">
-      <div class="text-center mb-16">
+      <div class="from-bottom text-center mb-16">
         <h2 class="text-3xl font-bold mb-2">Layanan <span class="text-gold text-4xl">Unggulan</span></h2>
         <div class="h-1 w-20 bg-gold mx-auto"></div>
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-3 justify-items-center gap-8">
         @foreach($services as $service)
-        <div class="glass p-8 rounded-3xl hover:border-gold/50 transition group">
+        <div style="transition-delay: {{ $loop->index * 0.2 }}s" class="from-bottom glass p-8 rounded-3xl hover:border-gold/50 group">
           <div class="w-12 h-12 bg-gold/10 rounded-2xl flex items-center justify-center text-gold mb-6 group-hover:bg-gold group-hover:text-slate-900 transition duration-500">
             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.121 14.121L19 19m-7-7l7-7m-7 7l-2.879 2.879M12 12L9.121 9.121m0 5.758L5 19m0-14l4.121 4.121"></path></svg>
           </div>
@@ -98,10 +112,10 @@
 
   <section id="barbers" class="py-24">
     <div class="container mx-auto px-6 text-center">
-      <h2 class="text-3xl font-bold mb-16">Pegawai <span class="text-gold">Barbershop</span></h2>
+      <h2 class="from-bottom text-3xl font-bold mb-16">Pegawai <span class="text-gold">Barbershop</span></h2>
       <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
         @foreach($barbers as $barber)
-        <div class="group">
+        <div style="transition-delay: {{ $loop->index * 0.2 }}s" class="from-bottom group">
           <div class="relative overflow-hidden rounded-2xl aspect-[3/4] mb-4">
             <img src="{{ asset('storage/' . $barber->photo) }}" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition duration-700 scale-110 group-hover:scale-100">
             <div class="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-transparent opacity-60"></div>
@@ -152,5 +166,31 @@
     </div>
   </footer>
 
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+    const boxes = document.querySelectorAll('.from-bottom');
+
+    const observerOptions = {
+    root: null, // Mengacu pada viewport
+    threshold: 0.15 // Elemen terlihat 15% langsung trigger
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+    if (entry.isIntersecting) {
+    // Jika terlihat di layar, tambahkan class active
+    entry.target.classList.add('active');
+    } else {
+    // Jika tidak terlihat (scrolled away), hapus class active agar animasi berulang
+    entry.target.classList.remove('active');
+    }
+    });
+    }, observerOptions);
+
+    boxes.forEach(box => {
+    observer.observe(box);
+    });
+    });
+  </script>
 </body>
 </html>

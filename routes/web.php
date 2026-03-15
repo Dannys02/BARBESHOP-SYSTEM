@@ -48,7 +48,7 @@ Route::middleware(['auth'])->group(function() {
     });
 
     // CRUD BARBERS
-    Route::resource("/barbers", BarberController::class)->except(["show"]);
+    Route::resource("/barbers", BarberController::class);
 
     // CRUD SERVICES
     Route::resource("/services", ServiceController::class)->except(["show"]);

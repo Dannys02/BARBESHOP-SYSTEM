@@ -53,6 +53,11 @@ class BarberController extends Controller {
   public function edit(Barber $barber) {
     return view("admin.barbers.edit", compact("barber"));
   }
+  
+  public function show($id) {
+    $barber = Barber::findOrFail($id);
+    return view("admin.barbers.show", compact("barber"));
+  }
 
   public function update(Request $request, Barber $barber) {
     $oldData = $barber->getOriginal();
