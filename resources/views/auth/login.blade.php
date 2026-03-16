@@ -26,11 +26,10 @@
 
   <div class="w-full max-w-md">
     <div class="text-center mb-8">
-      <h1 class="text-3xl font-black text-gold tracking-widest uppercase italic">✂ Barbeshop</h1>
+      <h1 class="text-3xl font-black text-gold tracking-widest uppercase italic">✂ Barbershop</h1>
       <p class="text-gray-400 text-sm mt-2">
-        Akses Admin Saja
-      </p>
     </div>
+      </p>
 
     <div class="glass p-8 rounded-3xl shadow-2xl">
       <form method="POST" action="{{ route('login') }}">

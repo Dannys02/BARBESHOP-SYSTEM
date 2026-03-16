@@ -76,7 +76,7 @@
             $phone = '62' . substr($phone, 1);
             }
 
-            $pesan = "Halo Kak " . $appointment->customer_name . ", kami dari Barbeshop ingin mengonfirmasi reservasi Anda pada tanggal " . $appointment->booking_date . " jam " . $appointment->booking_time . ". Apakah sudah sesuai?";
+$pesan = "Halo Kak " . $appointment->customer_name . ", kami dari Barbershop ingin mengonfirmasi reservasi Anda pada tanggal " . $appointment->booking_date . " jam " . $appointment->booking_time . ". Apakah sudah sesuai?";
             $waUrl = "https://wa.me/" . $phone . "?text=" . urlencode($pesan);
             @endphp
 
@@ -101,7 +101,7 @@
             $phone = '62' . substr($phone, 1);
             }
 
-            $pesan = "Halo Kak " . $appointment->customer_name . ", kami dari Barbeshop telah mengonfirmasi reservasi Anda pada tanggal " . $appointment->booking_date . " jam " . $appointment->booking_time . ". Jangan lupa hadir kak!";
+$pesan = "Halo Kak " . $appointment->customer_name . ", kami dari Barbershop telah mengonfirmasi reservasi Anda pada tanggal " . $appointment->booking_date . " jam " . $appointment->booking_time . ". Jangan lupa hadir kak!";
             $waUrl = "https://wa.me/" . $phone . "?text=" . urlencode($pesan);
             @endphp
 

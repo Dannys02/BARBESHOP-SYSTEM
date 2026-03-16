@@ -32,7 +32,7 @@
   <nav class="border-b border-gray-800 bg-slate-900 shadow-xl">
     <div class="container mx-auto px-6 py-4 flex justify-between items-center">
       <a href="/" class="text-2xl font-bold tracking-widest text-gold uppercase flex items-center gap-2">
-        <span>✂</span>Barbeshop
+        <span>✂</span>Barbershop
       </a>
       <a href="/" class="text-gray-300 hover:text-gold transition">Kembali</a>
     </div>

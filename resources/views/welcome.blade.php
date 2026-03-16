@@ -43,7 +43,7 @@
   <nav class="fixed w-full z-50 glass">
     <div class="px-6 md:px-12 py-4 flex justify-between items-center">
       <a href="#" class="text-2xl font-extrabold tracking-tighter text-gold uppercase">
-        ✂ Barbeshop
+        ✂ Barbershop
       </a>
 
       <div class="hidden md:flex items-center space-x-4 text-sm font-semibold uppercase tracking-widest">
@@ -130,7 +130,7 @@
   <footer class="bg-slate-950 pt-20 pb-10 border-t border-gray-800">
     <div class="container mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-12 mb-16">
       <div>
-        <h3 class="text-2xl font-bold text-gold mb-6 uppercase">✂ Barbeshop</h3>
+        <h3 class="text-2xl font-bold text-gold mb-6 uppercase">✂ Barbershop</h3>
         <p class="text-gray-500 leading-relaxed text-sm">
           Memberikan standar baru dalam perawatan rambut pria sejak 2026. Kualitas adalah prioritas utama kami.
         </p>
