@@ -86,6 +86,67 @@
     </div>
   </section>
 
+  <section id="about" class="py-24 relative overflow-hidden">
+    <div class="absolute top-0 right-0 -translate-y-1/2 translate-x-1/2 w-96 h-96 bg-gold/5 rounded-full blur-[120px]"></div>
+
+    <div class="container mx-auto px-6">
+      <div class="flex flex-col md:flex-row items-center gap-16">
+        <div class="w-full md:w-1/2 from-bottom relative group">
+          <div class="absolute -top-4 -left-4 w-24 h-24 border-t-4 border-l-4 border-gold z-0"></div>
+          <div class="absolute -bottom-4 -right-4 w-24 h-24 border-b-4 border-r-4 border-gold z-0"></div>
+          <div class="relative z-10 overflow-hidden rounded-2xl aspect-square glass p-3">
+            <img src="https://images.unsplash.com/photo-1503951914875-452162b0f3f1?q=80&w=1000&auto=format&fit=crop"
+            alt="Barber Shop Interior"
+            class="w-full h-full object-cover rounded-xl grayscale group-hover:grayscale-0 transition duration-700">
+          </div>
+        </div>
+
+        <div class="w-full md:w-1/2 from-bottom" style="transition-delay: 0.3s;">
+          <h4 class="text-gold font-bold tracking-widest uppercase mb-4 text-sm">Warisan & Kualitas</h4>
+          <h2 class="text-4xl md:text-5xl font-black mb-6 leading-tight text-white">Lebih dari Sekedar <br><span class="text-gold">Potong Rambut.</span></h2>
+          <p class="text-gray-400 mb-8 leading-relaxed text-lg">
+            Didirikan pada tahun 2026, <span class="text-white font-semibold">Barbershop</span> hadir bukan hanya untuk memangkas rambut, tapi untuk mendefinisikan kembali karakter pria modern melalui sentuhan klasik yang presisi.
+          </p>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-10">
+            <div class="flex items-start space-x-4">
+              <div class="mt-1 text-gold">
+                <i class="fas fa-check-circle"></i>
+              </div>
+              <div>
+                <h5 class="font-bold text-white">Sterilisasi Ketat</h5>
+                <p class="text-gray-500 text-sm">
+                  Alat disterilkan dengan sinar UV setiap sesi.
+                </p>
+              </div>
+            </div>
+            <div class="flex items-start space-x-4">
+              <div class="mt-1 text-gold">
+                <i class="fas fa-check-circle"></i>
+              </div>
+              <div>
+                <h5 class="font-bold text-white">Premium Product</h5>
+                <p class="text-gray-500 text-sm">
+                  Hanya menggunakan pomade & tonik terbaik.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="p-6 glass border-l-4 border-gold rounded-r-2xl">
+            <p class="italic text-gray-300">
+              "Kepercayaan diri seorang pria bermula dari kursi barber kami. Kami memastikan setiap detail adalah karya seni."
+            </p>
+            <p class="mt-4 font-bold text-gold text-sm uppercase tracking-widest">
+              — Head Barber Barbershop
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
   <section id="services" class="py-24 bg-slate-900/50">
     <div class="container mx-auto px-6">
       <div class="from-bottom text-center mb-16">
@@ -109,6 +170,76 @@
       </div>
     </div>
   </section>
+
+  <section id="gallery" class="py-24 bg-slate-900/50">
+    <div class="container mx-auto px-6">
+      <div class="from-bottom text-center mb-16">
+        <h4 class="text-gold font-bold tracking-widest uppercase mb-2 text-sm">Our Masterpieces</h4>
+        <h2 class="text-3xl md:text-5xl font-black text-white">Lookbook <span class="text-gold">Karakter</span></h2>
+        <div class="h-1 w-20 bg-gold mx-auto mt-6"></div>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+
+        <div class="from-bottom group relative overflow-hidden rounded-3xl aspect-square glass border-none" style="transition-delay: 0.1s;">
+          <img src="https://images.unsplash.com/photo-1621605815841-2dddbaa2093a?q=80&w=1000&auto=format&fit=crop"
+          class="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-110 transition duration-700">
+          <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition duration-500 flex flex-col justify-end p-8">
+            <span class="text-gold font-bold text-xs uppercase tracking-[0.2em] mb-2">Signature Cut</span>
+            <h4 class="text-white text-xl font-bold">Classic Pompadour</h4>
+          </div>
+        </div>
+
+        <div class="from-bottom group relative overflow-hidden rounded-3xl aspect-square glass border-none" style="transition-delay: 0.2s;">
+          <img src="https://images.unsplash.com/photo-1599351431247-f50940397dc0?q=80&w=1000&auto=format&fit=crop"
+          class="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-110 transition duration-700">
+          <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition duration-500 flex flex-col justify-end p-8">
+            <span class="text-gold font-bold text-xs uppercase tracking-[0.2em] mb-2">Modern Look</span>
+            <h4 class="text-white text-xl font-bold">Mid Fade Texture</h4>
+          </div>
+        </div>
+
+        <div class="from-bottom group relative overflow-hidden rounded-3xl aspect-square glass border-none" style="transition-delay: 0.3s;">
+          <img src="https://images.unsplash.com/photo-1593702295094-ada74bc4a19c?q=80&w=1000&auto=format&fit=crop"
+          class="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-110 transition duration-700">
+          <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition duration-500 flex flex-col justify-end p-8">
+            <span class="text-gold font-bold text-xs uppercase tracking-[0.2em] mb-2">Gentlemen's Choice</span>
+            <h4 class="text-white text-xl font-bold">Low Taper Blowout</h4>
+          </div>
+        </div>
+
+        <div class="from-bottom lg:col-span-2 group relative overflow-hidden rounded-3xl h-[300px] lg:h-auto glass border-none" style="transition-delay: 0.4s;">
+          <img src="https://images.unsplash.com/photo-1512690118259-b10884895772?q=80&w=1000&auto=format&fit=crop"
+          class="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition duration-700">
+          <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition duration-500 flex flex-col justify-end p-8">
+            <span class="text-gold font-bold text-xs uppercase tracking-[0.2em] mb-2">Precision Work</span>
+            <h4 class="text-white text-xl font-bold">Beard Sculpting & Trim</h4>
+          </div>
+        </div>
+
+        <div class="from-bottom group relative overflow-hidden rounded-3xl aspect-square glass border-none" style="transition-delay: 0.5s;">
+          <img src="https://images.unsplash.com/photo-1605497788044-5a32c7078486?q=80&w=1000&auto=format&fit=crop"
+          class="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-110 transition duration-700">
+          <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition duration-500 flex flex-col justify-end p-8">
+            <span class="text-gold font-bold text-xs uppercase tracking-[0.2em] mb-2">Edgy Style</span>
+            <h4 class="text-white text-xl font-bold">Buzz Cut Fade</h4>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="mt-16 text-center from-bottom">
+        <p class="text-gray-400 mb-6 font-medium">
+          Lihat lebih banyak hasil karya kami di Instagram
+        </p>
+        <a href="#" class="inline-flex items-center space-x-3 text-gold font-bold border-b-2 border-gold pb-1 hover:text-white hover:border-white transition italic">
+          <span>Follow @barbershop_official</span>
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
 
   <section id="barbers" class="py-24">
     <div class="container mx-auto px-6 text-center">
