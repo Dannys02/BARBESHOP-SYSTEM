@@ -10,9 +10,9 @@ Route::get('/', function () {
   return view('welcome');
 });
 
-Route::get('/dashboard', function () {
-  return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+// Route::get('/dashboard', function () {
+//   return view('dashboard');
+// })->middleware(['auth', 'verified'])->name('admin.dashboard');
 
 Route::middleware('auth')->group(function () {
   Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -45,7 +45,7 @@ Route::middleware(['auth'])->group(function() {
       $recentActivities = \App\Models\Activity::latest()->take(5)->get();
 
       return view("admin.dashboard", compact("barbers", "services", "appointments", "recentActivities"));
-    });
+    })->name('dashboard');
 
     // CRUD BARBERS
     Route::resource("/barbers", BarberController::class);

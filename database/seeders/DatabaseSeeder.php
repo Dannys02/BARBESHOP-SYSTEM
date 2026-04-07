@@ -17,19 +17,19 @@ class DatabaseSeeder extends Seeder
 
   public function run(): void
   {
-    // --- SEEDING USERS ---
-    User::create([
-      'name' => 'Admin',
-      'email' => 'admin@gmail.com',
-      'password' => '$2y$12$/WvX24t5mQQDIAT.6LTZvePW3s9pkt6/OFs7al2el/iDsIl9qqh.O', // Hash asli dari DB
-      'email_verified_at' => '2026-02-21 07:16:30',
-    ]);
+    // // --- SEEDING USERS ---
+    // User::create([
+    //   'name' => 'Admin',
+    //   'email' => 'admin@gmail.com',
+    //   'password' => '$2y$12$/WvX24t5mQQDIAT.6LTZvePW3s9pkt6/OFs7al2el/iDsIl9qqh.O', // Hash asli dari DB
+    //   'email_verified_at' => '2026-02-21 07:16:30',
+    // ]);
 
-    User::create([
-      'name' => 'Admin',
-      'email' => 'admin@barbershop.com',
-      'password' => '$2y$12$RPIhllDuiLYqm4VwRMLca.QHj7vgo4FqTwPnfFja/TVFrGi1S98DW',
-    ]);
+    // User::create([
+    //   'name' => 'Admin',
+    //   'email' => 'admin@barbershop.com',
+    //   'password' => '$2y$12$RPIhllDuiLYqm4VwRMLca.QHj7vgo4FqTwPnfFja/TVFrGi1S98DW',
+    // ]);
 
     // --- SEEDING SERVICES ---
     $services = [

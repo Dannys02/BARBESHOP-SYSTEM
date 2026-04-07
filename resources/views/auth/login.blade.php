@@ -37,7 +37,7 @@
 
         <div class="mb-6">
           <label class="block text-xs font-bold uppercase tracking-widest text-gray-400 mb-2">Email Address</label>
-          <input type="email" name="email" value="{{ old('email') }}" required autofocus
+          <input type="email" name="email" value="{{ old('email') }}" placeholder="Tulis Email Anda..." required autofocus
           class="w-full bg-slate-900 border border-gray-700 rounded-xl px-4 py-3 text-white focus:border-gold focus:ring-1 focus:ring-gold outline-none transition">
           @error('email') <p class="text-red-500 text-xs mt-1">
             {{ $message }}
@@ -47,17 +47,12 @@
 
         <div class="mb-6">
           <label class="block text-xs font-bold uppercase tracking-widest text-gray-400 mb-2">Password</label>
-          <input type="password" name="password" required
+          <input type="password" name="password" placeholder="Tulis Password Anda" required
           class="w-full bg-slate-900 border border-gray-700 rounded-xl px-4 py-3 text-white focus:border-gold focus:ring-1 focus:ring-gold outline-none transition">
           @error('password') <p class="text-red-500 text-xs mt-1">
             {{ $message }}
           </p>
           @enderror
-        </div>
-
-        <div class="flex items-center mb-8">
-          <input type="checkbox" name="remember" class="rounded border-gray-700 bg-slate-900 text-gold focus:ring-gold">
-          <span class="ml-2 text-sm text-gray-400">Ingat saya</span>
         </div>
 
         <button type="submit"
