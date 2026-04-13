@@ -1,6 +1,6 @@
 @extends('layouts.admin')
 
-@section('barber')
+@section('content')
 <div class="flex justify-between items-center mb-8">
   <h2 class="text-3xl font-semibold">Daftar <span class="text-gold">Pegawai</span></h2>
   <a href="{{ route('barbers.create') }}" class="bg-gold text-xs md:text-base text-slate-900 px-6 py-2 rounded-full font-bold hover:scale-105 transition transform">

@@ -146,15 +146,15 @@
     </div>
     @endif
 
-    @yield('dashboard')
-    @yield('barber')
+    @yield('content')
+    {{-- @yield('barber')
     @yield('create_barber')
     @yield('edit_barber')
     @yield('show_barber')
     @yield('service')
     @yield('create_service')
     @yield('edit_service')
-    @yield('appointment')
+    @yield('appointment') --}}
   </main>
 
   <script>

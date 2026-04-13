@@ -1,6 +1,6 @@
 @extends('layouts.admin')
 
-@section('create_service')
+@section('content')
 <div class="max-w-2xl mx-auto bg-slate-800 p-8 rounded-2xl border border-gray-700">
   <h2 class="text-2xl font-bold mb-6 text-gold text-center">Tambah Layanan Baru</h2>
 

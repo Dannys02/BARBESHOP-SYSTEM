@@ -1,6 +1,6 @@
 @extends('layouts.admin')
 
-@section('appointment')
+@section('content')
 <div class="flex justify-between items-center mb-8">
   <h2 class="text-3xl font-semibold">Daftar <span class="text-gold">Reservasi</span></h2>
 </div>
