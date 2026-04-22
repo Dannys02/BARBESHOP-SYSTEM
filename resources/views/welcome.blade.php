@@ -28,15 +28,12 @@
             border: 1px solid rgba(255, 255, 255, 0.1);
         }
 
-        /* State Awal: Opacity 0 dan Geser Bawah 50px */
         .from-bottom {
             opacity: 0;
             transform: translateY(50px);
             transition: all 1s ease-out;
-            /* Durasi 1 detik sesuai request */
         }
 
-        /* State Saat Terlihat di Layar: Opacity 100 dan Posisi Normal */
         .from-bottom.active {
             opacity: 1;
             transform: translateY(0);
@@ -53,6 +50,7 @@
             </a>
 
             <div class="hidden md:flex items-center space-x-4 text-sm font-semibold uppercase tracking-widest">
+                <a href="#" class="hover:text-yellow-500 transition">Beranda</a>
                 <a href="#services" class="hover:text-yellow-500 transition">Layanan</a>
                 <a href="#gallery" class="hover:text-yellow-500 transition">Galeri</a>
                 <a href="#barbers" class="hover:text-yellow-500 transition">Barber</a>
@@ -219,92 +217,62 @@
     <section id="gallery" class="py-24 bg-slate-900/50">
         <div class="container mx-auto px-6">
             <div class="from-bottom text-center mb-16">
-                <h4 class="text-gold font-bold tracking-widest uppercase mb-2 text-sm">Mahakarya Kita</h4>
-                <h2 class="text-3xl md:text-5xl font-black text-white">Lookbook <span
+                <h4 class="text-gold font-bold tracking-widest uppercase mb-2 text-sm">Galeri Kita</h4>
+                <h2 class="text-3xl md:text-5xl font-black text-white">Jejak Visual <span
                         class="text-gold">Karakter</span></h2>
                 <div class="h-1 w-20 bg-gold mx-auto mt-6"></div>
             </div>
 
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
 
-                <div class="from-bottom group relative overflow-hidden rounded-3xl aspect-square glass border-none"
-                    style="transition-delay: 0.1s;">
-                    <img src="https://images.unsplash.com/photo-1621605815841-2dddbaa2093a?q=80&w=1000&auto=format&fit=crop"
+                @forelse($galleries as $item)
+                    @if ($loop->index == 3)
+                        <div class="lg:col-span-2 group relative overflow-hidden rounded-3xl h-[300px] lg:h-auto">
+                    @else
+                        <div class="group relative overflow-hidden rounded-3xl aspect-square">
+                    @endif
+
+                    <img src="{{ asset('storage/' . $item->image) }}"
                         class="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-110 transition duration-700">
-                    <div
-                        class="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition duration-500 flex flex-col justify-end p-8">
-                        <span class="text-gold font-bold text-xs uppercase tracking-[0.2em] mb-2">Signature Cut</span>
-                        <h4 class="text-white text-xl font-bold">Classic Pompadour</h4>
+                        <div
+                            class="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent
+                            opacity-0 group-hover:opacity-100 transition duration-500 flex flex-col justify-end p-8">
+                                <span class="text-gold font-bold text-xs uppercase tracking-[0.2em] mb-2">
+                                    {{ $item->subtitle }}
+                                </span>
+                                <h4 class="text-white text-xl font-bold">
+                                    {{ $item->title }}
+                                </h4>
+                            </div>
+                        </div>
+                @empty
+                    <div class="col-span-full flex flex-col items-center w-full from-bottom delay-200">
+                        <span class="text-xl text-center italic">Belum ada Galeri.</span>
                     </div>
-                </div>
+                @endforelse
 
-                <div class="from-bottom group relative overflow-hidden rounded-3xl aspect-square glass border-none"
-                    style="transition-delay: 0.2s;">
-                    <img src="https://images.unsplash.com/photo-1599351431247-f50940397dc0?q=80&w=1000&auto=format&fit=crop"
-                        class="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-110 transition duration-700">
-                    <div
-                        class="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition duration-500 flex flex-col justify-end p-8">
-                        <span class="text-gold font-bold text-xs uppercase tracking-[0.2em] mb-2">Modern Look</span>
-                        <h4 class="text-white text-xl font-bold">Mid Fade Texture</h4>
-                    </div>
-                </div>
+        </div>
 
-                <div class="from-bottom group relative overflow-hidden rounded-3xl aspect-square glass border-none"
-                    style="transition-delay: 0.3s;">
-                    <img src="https://images.unsplash.com/photo-1593702295094-ada74bc4a19c?q=80&w=1000&auto=format&fit=crop"
-                        class="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-110 transition duration-700">
-                    <div
-                        class="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition duration-500 flex flex-col justify-end p-8">
-                        <span class="text-gold font-bold text-xs uppercase tracking-[0.2em] mb-2">Gentlemen's
-                            Choice</span>
-                        <h4 class="text-white text-xl font-bold">Low Taper Blowout</h4>
-                    </div>
-                </div>
-
-                <div class="from-bottom lg:col-span-2 group relative overflow-hidden rounded-3xl h-[300px] lg:h-auto glass border-none"
-                    style="transition-delay: 0.4s;">
-                    <img src="https://images.unsplash.com/photo-1512690118259-b10884895772?q=80&w=1000&auto=format&fit=crop"
-                        class="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition duration-700">
-                    <div
-                        class="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition duration-500 flex flex-col justify-end p-8">
-                        <span class="text-gold font-bold text-xs uppercase tracking-[0.2em] mb-2">Precision Work</span>
-                        <h4 class="text-white text-xl font-bold">Beard Sculpting & Trim</h4>
-                    </div>
-                </div>
-
-                <div class="from-bottom group relative overflow-hidden rounded-3xl aspect-square glass border-none"
-                    style="transition-delay: 0.5s;">
-                    <img src="https://images.unsplash.com/photo-1605497788044-5a32c7078486?q=80&w=1000&auto=format&fit=crop"
-                        class="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-110 transition duration-700">
-                    <div
-                        class="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition duration-500 flex flex-col justify-end p-8">
-                        <span class="text-gold font-bold text-xs uppercase tracking-[0.2em] mb-2">Edgy Style</span>
-                        <h4 class="text-white text-xl font-bold">Buzz Cut Fade</h4>
-                    </div>
-                </div>
-
-            </div>
-
-            <div class="mt-16 text-center from-bottom">
-                <p class="text-gray-400 mb-6 font-medium">
-                    Lihat lebih banyak hasil karya kami di Instagram
-                </p>
-                <a href="#"
-                    class="inline-flex items-center space-x-3 text-gold font-bold border-b-2 border-gold pb-1 hover:text-white hover:border-white transition italic">
-                    <span>Follow @barbershop_official</span>
-                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
-                    </svg>
-                </a>
-            </div>
+        <div class="mt-16 text-center from-bottom">
+            <p class="text-gray-400 mb-6 font-medium">
+                Lihat lebih banyak hasil karya kami di Instagram
+            </p>
+            <a href="#"
+                class="inline-flex items-center space-x-3 text-gold font-bold border-b-2 border-gold pb-1 hover:text-white hover:border-white transition italic">
+                <span>Follow @barbershop_official</span>
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                </svg>
+            </a>
+        </div>
         </div>
     </section>
 
 
     <section id="barbers" class="py-24">
         <div class="container mx-auto px-6 text-center">
-            <h2 class="from-bottom text-3xl md:text-5xl font-bold mb-16">Pegawai <span
+            <h2 class="from-bottom text-3xl md:text-5xl font-bold mb-16">Staf <span
                     class="text-gold">Barbershop</span></h2>
 
             <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
@@ -321,7 +289,7 @@
                     </div>
                 @empty
                     <div class="col-span-full flex flex-col items-center w-full from-bottom delay-200">
-                        <span class="text-xl text-center italic">Belum ada pegawai.</span>
+                        <span class="text-xl text-center italic">Belum ada Staf Barbershop.</span>
                     </div>
                 @endforelse
             </div>
@@ -384,7 +352,7 @@
 
             const animasiBawah = {
                 root: null, // Mengacu pada viewport
-                threshold: 0.15 // Elemen terlihat 15% langsung trigger
+                threshold: 0 // Elemen terlihat 15% langsung trigger
             };
 
             const observer = new IntersectionObserver((entries) => {

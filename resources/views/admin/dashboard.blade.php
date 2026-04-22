@@ -1,7 +1,7 @@
 @extends("layouts.admin")
 
 @section("content")
-<div class="p-4 sm:p-6 lg:p-8 min-h-screen">
+<div class=" min-h-screen">
   <div class="mb-8">
     <h1 class="text-3xl font-bold text-gray-50">Dashboard <span class="text-gold">{{ auth()->user()->name }}</span></h1>
     <p class="text-gray-50">

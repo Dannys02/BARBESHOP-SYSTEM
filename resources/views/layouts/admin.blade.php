@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Barbe'shop | Admin Pages</title>
+  <title>Admin | Barbershop</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
   <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
@@ -75,7 +75,8 @@
 
       <div class="hidden md:flex items-center space-x-2">
         <a href="/admin/dashboard" class="px-4 py-2 rounded-lg transition {{ request()->is('admin/dashboard') ? 'text-gold' : 'text-gray-300 hover:text-gold' }}">Dashboard</a>
-        <a href="{{ route('barbers.index') }}" class="px-4 py-2 rounded-lg transition {{ request()->is('admin/barbers*') ? 'text-gold' : 'text-gray-300 hover:text-gold' }}">Pegawai</a>
+        <a href="{{ route('barbers.index') }}" class="px-4 py-2 rounded-lg transition {{ request()->is('admin/barbers*') ? 'text-gold' : 'text-gray-300 hover:text-gold' }}">Staf</a>
+        <a href="{{ route('galleries.index') }}" class="px-4 py-2 rounded-lg transition {{ request()->is('admin/galleries*') ? 'text-gold' : 'text-gray-300 hover:text-gold' }}">Galeri</a>
         <a href="{{ route('services.index') }}" class="px-4 py-2 rounded-lg transition {{ request()->is('admin/services*') ? 'text-gold' : 'text-gray-300 hover:text-gold' }}">Layanan</a>
         <a href="{{ route('booking.index') }}" class="px-6 py-2 rounded-lg transition {{ request()->is('admin/booking*') ? 'text-gold' : 'text-gray-300 hover:text-gold' }}">Reservasi</a>
         <div class="h-6 w-px bg-gray-700 mx-2"></div>
@@ -113,7 +114,7 @@
         @php
         $navItems = [
         ['url' => '/admin/dashboard', 'name' => 'Dashboard', 'pattern' => 'admin/dashboard'],
-        ['url' => route('barbers.index'), 'name' => 'Pegawai', 'pattern' => 'admin/barbers*'],
+        ['url' => route('barbers.index'), 'name' => 'Staf', 'pattern' => 'admin/barbers*'],
         ['url' => route('services.index'), 'name' => 'Layanan', 'pattern' => 'admin/services*'],
         ['url' => route('booking.index'), 'name' => 'Reservasi', 'pattern' => 'admin/booking*'],
         ];
@@ -147,14 +148,6 @@
     @endif
 
     @yield('content')
-    {{-- @yield('barber')
-    @yield('create_barber')
-    @yield('edit_barber')
-    @yield('show_barber')
-    @yield('service')
-    @yield('create_service')
-    @yield('edit_service')
-    @yield('appointment') --}}
   </main>
 
   <script>

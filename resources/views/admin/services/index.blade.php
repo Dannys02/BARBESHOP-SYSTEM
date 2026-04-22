@@ -9,7 +9,7 @@
 </div>
 
 <div class="bg-slate-800 rounded-2xl border border-gray-700 overflow-x-auto">
-  <table id="tabelPesanan" class="w-full text-left border-collapse">
+  <table class="w-full text-left border-collapse">
     <thead class="bg-slate-900 text-gold uppercase text-sm">
       <tr>
         <th class="p-4 text-xs font-bold">No</th>

@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BarberController;
 use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\AppointmentController;
+use App\Http\Controllers\GalleryController;
 
 Route::get('/', function () {
   return view('welcome');
@@ -25,8 +26,9 @@ require __DIR__.'/auth.php';
 Route::get('/', function() {
   $barbers = App\Models\Barber::all();
   $services = App\Models\Service::all();
+  $galleries = App\Models\Gallery::all();
 
-  return view('welcome', compact('barbers', 'services'));
+  return view('welcome', compact('barbers', 'services', 'galleries'));
 });
 
 Route::get('/booking/create', [AppointmentController::class, 'create'])->name('booking.create');
@@ -52,6 +54,9 @@ Route::middleware(['auth'])->group(function() {
 
     // CRUD SERVICES
     Route::resource("/services", ServiceController::class)->except(["show"]);
+
+    //CRUD GALLERY
+    Route::resource('galleries', GalleryController::class);
 
     // APPOINTMENTS SYSTEM
     Route::resource("/booking", AppointmentController::class)->except(["show"]);
