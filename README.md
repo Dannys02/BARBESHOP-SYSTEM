@@ -1,59 +1,167 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# 💇 Barbershop Booking System
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+Sistem booking online untuk barbershop yang memungkinkan pelanggan memesan layanan secara online.
 
-## About Laravel
+---
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## 📌 Deskripsi Singkat
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+Website ini dibuat sebagai project **Rekayasa Perangkat Lunak (RPL)** untuk menciptakan platform yang mempermudah pelanggan memesan layanan barbershop. Pengguna dapat melihat daftar barbershop, memilih service yang tersedia, dan membuat booking dengan barbershop pilihan mereka. Admin dapat mengelola data barbershop, service, dan melihat history booking.
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+---
 
-## Learning Laravel
+## ✨ Fitur Utama
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework. You can also check out [Laravel Learn](https://laravel.com/learn), where you will be guided through building a modern Laravel application.
+- **Sistem Login & Register** - User dapat membuat akun untuk menggunakan aplikasi
+- **User** - Melihat status booking sesuai nomor telepon
+- **Daftar Service** - Menampilkan service apa saja yang tersedia
+- **Jadwal Barber** - Melihat ketersediaan barbershop
+- **Booking Appointment** - User dapat membuat booking dengan memilih barber, service, dan tanggal
+- **Admin Dashboard** - Mengelola data barbershop, service, dan appointment
+- **Galeri Portfolio** - Menampilkan portfolio barbershop
+- **Activity Log** - Mencatat aktivitas yang terjadi di sistem
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+---
 
-## Laravel Sponsors
+## 🛠️ Teknologi yang Digunakan
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+| Aspek              | Teknologi                 |
+| ------------------ | ------------------------- |
+| **Backend**        | Laravel 11                |
+| **Frontend**       | Blade Template, HTML, CSS |
+| **Styling**        | Tailwind CSS              |
+| **Database**       | MySQL                     |
+| **Authentication** | Laravel Auth              |
 
-### Premium Partners
+Teknologi ini dipilih karena Laravel menyediakan struktur yang jelas dan banyak tools built-in yang memudahkan development.
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+---
 
-## Contributing
+## 👤 Peran Saya dalam Project
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+Saya adalah developer utama yang mengerjakan **~80-90%** dari project ini, mulai dari:
 
-## Code of Conduct
+- ✅ Merancang database schema dan membuat migrations
+- ✅ Membuat models dan relationships (Barber, Service, Appointment, User, dll)
+- ✅ Mengimplementasikan CRUD operations di Controllers
+- ✅ Membuat view dan validasi form
+- ✅ Styling dengan Tailwind CSS
+- ✅ Debugging dan fixing errors dengan bantuan AI
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+Sisanya adalah template default Laravel dan reference dari dokumentasi.
 
-## Security Vulnerabilities
+---
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+## 📚 Hal yang Saya Pahami dari Project Ini
 
-## License
+1. **CRUD Operations** - Create, Read, Update, Delete adalah fondasi aplikasi web
+2. **Database Relationships** - Hubungan antar tabel (One-to-Many) seperti banyak booking bisa terkait ke satu barber, tapi 1 booking cuma punya 1 barber
+3. **MVC Architecture** - Model, View, Controller dan bagaimana mereka bekerja bersama
+4. **Laravel Basics** - Routing, Controllers, Eloquent ORM, Blade Template
+5. **HTML & CSS** - Struktur halaman dan styling dengan Tailwind CSS
+6. **Form Validation** - Validasi input dari user sebelum disimpan ke database
+7. **Authentication** - Sistem login dan proteksi halaman agar hanya user tertentu yang bisa akses
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+Saya masih **sedang belajar** dan belum expert di beberapa area, tapi sudah cukup mengerti untuk membuat aplikasi CRUD dasar yang fungsional.
+
+---
+
+## 🤖 Catatan tentang AI dan Bantuan
+
+**Bagian yang dibantu AI:**
+
+- Debugging ketika ada error yang sulit dipahami
+- Penjelasan konsep yang tidak jelas dari dokumentasi
+- Refactoring kode agar lebih rapi
+
+**Bagian yang dikerjakan sendiri:**
+
+- Logic dan alur sistem
+- Database design
+- Implementasi fitur
+- Styling dan UI
+
+**Keterbatasan yang Saya Ketahui:**
+
+- Belum ada sistem notifikasi real-time
+- Belum ada integrasi payment gateway
+- Belum ada fitur reschedule appointment
+- Security masih dasar (hanya Laravel Auth default)
+- Testing belum lengkap
+
+---
+
+## 🚀 Cara Menjalankan Project
+
+### Prerequisites
+
+- PHP >= 8.2
+- Composer
+- MySQL
+- Node.js & NPM (untuk build assets)
+
+### Langkah-Langkah
+
+1. **Clone repository** (atau extract folder project)
+
+```bash
+cd BARBESHOP-BOOKING-SYSTEM
+```
+
+2. **Install dependencies**
+
+```bash
+composer install
+npm install
+```
+
+3. **Setup environment**
+
+```bash
+cp .env.example .env
+php artisan key:generate
+```
+
+4. **Konfigurasi database di `.env`**
+
+```
+DB_DATABASE=barbeshop_system
+DB_USERNAME=root
+DB_PASSWORD=
+```
+
+5. **Jalankan migrations**
+
+```bash
+php artisan migrate --seed
+```
+
+6. **Build assets**
+
+```bash
+npm run build
+```
+
+7. **Jalankan development server**
+
+```bash
+php artisan serve
+```
+
+8. **Akses aplikasi**
+
+- User: `http://localhost:8000`
+- Admin: Login dengan akun admin (sesuai seeder)
+
+---
+
+## 📝 Catatan Pengembangan
+
+- Project ini dibuat sebagai tugas RPL, fokus pada fungsionalitas dasar
+- Saya masih belajar, jadi ada kemungkinan ada improve yang bisa dilakukan
+- Welcome untuk feedback dan suggestions
+- Jika ada bug, silakan buat issue atau hubungi saya
+
+---
+
+**Dibuat oleh Dannys Martha Favrillia, siswa RPL** 👨‍💻
